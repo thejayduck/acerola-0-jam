@@ -147,7 +147,8 @@ init python:
                 "Hm... The device seems unresponsive...",
                 "It doesn't seem like it works...",
                 "My input doesn't get registered...",
-                "Weird, why doesn't it work?"
+                "Weird, why doesn't it work?",
+                "..."
             ]
             renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
         
