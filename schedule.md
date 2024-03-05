@@ -20,6 +20,7 @@
 - [ ] Draw Maike Scared CG
 - [ ] Animate Translocator and Implement
 - [ ] Fix Franz's Hair and clothing in his second pose
+- [ ] Draw Franz's Hair and Clothing in the CG
 - [ ] Translocator image button shortcut
 - [ ] Draw or Photoshop Street 2 (In front of fortune teller)
 
