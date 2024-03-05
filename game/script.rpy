@@ -36,14 +36,14 @@ label show_chapter(idx):
     show screen chapter_modal(idx) with dissolve
     
     $ renpy.pause(5, hard=True)
-    hide screen chapterModal with dissolve
+    hide screen chapter_modal with dissolve
     $ quick_menu = True
     
     stop sound fadeout 15.0
     scene black with fade
 
 screen chapter_modal(idx):
-    text "#[worldLine]":
+    text "#[world_line]":
         size 100
         xalign .5
         yalign .5
@@ -259,7 +259,7 @@ screen translocator():
         background "translocator_screen"
         
         text "#[device_input]":
-            id "worldLineText"
+            id "device_input"
             font "fonts/dot_matrix/DOTMATRI.TTF"
             antialias True
             color "#000"

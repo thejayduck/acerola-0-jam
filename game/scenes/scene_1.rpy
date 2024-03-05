@@ -38,7 +38,7 @@ label scene_1:
   $can_input = True
   maike "Try now"
 
-  # call show_chapter("2", worldLine) 
+  # call show_chapter("2", world_line) 
 
   maike "You can now input"
 

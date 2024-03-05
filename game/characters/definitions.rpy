@@ -6,7 +6,7 @@ define narrator = Character(ctc="ctc_indicator", ctc_position="nestled")
 # Main Characters
 define cassian = Character("Cassian", color="#fff2f2", what_slow_cps=25)
 define maike = Character("Maike", color="#fd9432", image="maike", what_slow_cps=20)
-define franz = Character("Franz", color="#c96d6d", image="friend2", what_slow_cps=30)
+define franz = Character("Franz", color="#c96d6d", image="franz", what_slow_cps=30)
 
 # Side Characters
 define fortune_teller = Character("Suspicious Guy", color="#6e2b2b", what_slow_cps=15)
