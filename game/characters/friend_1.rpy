@@ -1,4 +1,4 @@
-image friend1_talk:
+image maike_talk:
   "chara/friend1/mouth_closed.png"
   .2
   "chara/friend1/mouth_mid.png"
@@ -9,7 +9,7 @@ image friend1_talk:
   .2
   repeat 3
 
-layeredimage friend1:
+layeredimage maike:
   group base:
     attribute base default:
       "chara/friend1/base.png"
@@ -22,7 +22,7 @@ layeredimage friend1:
     attribute normal default:
       "chara/friend1/mouth_closed.png"
     attribute speaking:
-      "friend1_talk"
+      "maike_talk"
 
     
       
