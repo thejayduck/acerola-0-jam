@@ -5,37 +5,39 @@
 - [x] Draw bathroom
 - [x] Draw Living Room
 - [x] Find a name for every character (main cast only)
-- [x] Redesign Friend 1
+- [x] Redesign Maike
 - [x] Review Draft
 
-## 5th [Current]
+## 5th
 
-- [ ] Redesign Friend 2
-- [x] Start editing
-- [ ] List of CG's and expressions
+- [x] Redesign Franz
+- [x] Finish Editing #FFFFFF
+- [x] Hitting Franz on the head CG
+- [x] Translocator 3D Model
 
-## 6th
+## 6th [Current]
 
-- [ ] Draw Friend 1 Scared CG
+- [ ] Draw Maike Scared CG
+- [ ] Fix Franz's Hair and clothing in his second pose
 - [ ] Translocator image button shortcut
 - [ ] Draw or Photoshop Street 2 (In front of fortune teller)
 
 ## 7th
 
+- [ ] Finish Main Menu Design
 - [ ] Draw Hallway
-- [ ] Draw Protagonist Crazy CG
-- [ ] Translocator 3D Model
+- [ ] Draw Cassian Crazy CG
 
 ## 8th
 
-- [ ] Finish Main Menu Design
-- [ ] Draw Fortune Teller CG
+- [ ] Draw Fortune Teller CG (Might be scrapped)
 - [ ] Draw or Photoshop Street 1 (City)
 - [ ] Draw or Photoshop city overview (empty world)
 
 ## 9th
 
 - [ ] Finish Editing
+- [ ] List of CG's and expressions
 - [ ] Start Drawing Expressions
 - [ ] Beta Read the Script
 
