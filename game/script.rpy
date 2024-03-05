@@ -99,7 +99,7 @@ transform left_to_right:
     repeat
 
 ##
-# Scripts
+# Functions
 ##
 init python:
     # Punctuation Pauses
@@ -108,7 +108,7 @@ init python:
             ". " : ". {w=0.75}", 
             ", " : ", {w=0.45}",
             "? " : "? {w=0.75}",
-            "! " : "! {w=0.75}", #? Add hpunch? (might distrub in some scenes)
+            "! " : "! {w=0.75}",
             "...": "{cps=2}...{/cps} {w=0.1}"
         }
         for key in punctuations:
@@ -137,17 +137,20 @@ init python:
             if len(device_input) == 6:
                 confirm_input()
         else:
-            translocator_error()
+            translocator_error(False)
 
-    def translocator_error():
-        responses = [
-            "Hm... The device seems unresponsive...",
-            "It doesn't seem like it works...",
-            "My input doesn't get registered...",
-            "Weird, why doesn't it work?"
-        ]
+    def translocator_error(generic = True):
         renpy.play("audio/sfx/beep_2.wav", "sound")
-        renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
+        
+        if not generic:
+            responses = [
+                "Hm... The device seems unresponsive...",
+                "It doesn't seem like it works...",
+                "My input doesn't get registered...",
+                "Weird, why doesn't it work?"
+            ]
+            renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
+        
 
     def confirm_input():
         global world_line
@@ -241,13 +244,13 @@ screen translocator():
                 action [Function(update_input, "C")]
             textbutton "*":
                 text_style "translocator_text"
-                action [Function(update_input, "*")]
+                action [Function(translocator_error)]
             textbutton "O":
                 text_style "translocator_text"
                 action [Function(update_input, "O")]
             textbutton "#":
                 text_style "translocator_text"
-                action [Function(update_input, "#")]
+                action [Function(translocator_error)] 
             textbutton "D":
                 text_style "translocator_text"
                 action [Function(update_input, "D")]
