@@ -11,19 +11,19 @@
 ## 5th [Current]
 
 - [ ] Redesign Friend 2
-- [ ] Draw or Photoshop Street 2 (In front of fortune teller)
 - [ ] Start editing
 - [ ] List of CG's and expressions
 
 ## 6th
 
 - [ ] Draw Friend 1 Scared CG
-- [ ] Draw Protagonist Crazy CG
 - [ ] Translocator image button shortcut
+- [ ] Draw or Photoshop Street 2 (In front of fortune teller)
 
 ## 7th
 
 - [ ] Draw Hallway
+- [ ] Draw Protagonist Crazy CG
 - [ ] Translocator 3D Model
 
 ## 8th
