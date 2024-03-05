@@ -11,7 +11,7 @@
 ## 5th [Current]
 
 - [ ] Redesign Friend 2
-- [ ] Start editing
+- [x] Start editing
 - [ ] List of CG's and expressions
 
 ## 6th

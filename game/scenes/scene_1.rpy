@@ -27,6 +27,11 @@ label scene_1:
 
   cassian "Sup!!!!"
 
+  "I am the narrator hello!"
+
+  maike "Ren'Py supports displaying multiple lines of dialogue simultaneously." (multiple=2)
+  franz "About bloody time! I've been waiting for this for years." (multiple=2)
+
   maike "Testing pauses. Uhhhh, so what's up? Have you been doing okay... Yeah cool cool."
 
   maike "AAAAHHHH! OMG WHAT WAS THAT? Oh btw, I am joking, we are still testing the pauses."
