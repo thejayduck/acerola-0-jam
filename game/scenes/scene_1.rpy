@@ -1,5 +1,5 @@
 label scene_1:
-
+  $can_input = False
   # These display lines of dialogue.
   maike "lets see how backgrounds look and decide on a shot that fits it the best."
   
@@ -29,16 +29,13 @@ label scene_1:
 
   "I am the narrator hello!"
 
-  maike "Ren'Py supports displaying multiple lines of dialogue simultaneously." (multiple=2)
-  franz "About bloody time! I've been waiting for this for years." (multiple=2)
-
   maike "Testing pauses. Uhhhh, so what's up? Have you been doing okay... Yeah cool cool."
 
   maike "AAAAHHHH! OMG WHAT WAS THAT? Oh btw, I am joking, we are still testing the pauses."
 
   maike "You can't Input anything yet... Wow Funny."
 
-  $canInput = True
+  $can_input = True
   maike "Try now"
 
   # call show_chapter("2", worldLine) 

@@ -1,9 +1,8 @@
-﻿define e = Character("Eileen")
-default deviceInput = "FFFFFF"
-default worldLine = "FFFFFF"
-default canInput = False
-define translocatorVisible = False
-define currentScene = 1
+﻿default device_input = "FFFFFF"
+default world_line = "FFFFFF"
+default can_input = False
+define translocator_visibility = False
+define current_scene = 1
 
 define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'screens', 'overlay']
 
@@ -34,7 +33,7 @@ label show_chapter(idx):
     $ renpy.pause(1.5, hard=True)
     play sound "audio/sfx/warp.mp3" fadein 0.5
     scene space with dissolve 
-    show screen chapterModal(idx) with dissolve
+    show screen chapter_modal(idx) with dissolve
     
     $ renpy.pause(5, hard=True)
     hide screen chapterModal with dissolve
@@ -43,7 +42,7 @@ label show_chapter(idx):
     stop sound fadeout 15.0
     scene black with fade
 
-screen chapterModal(idx):
+screen chapter_modal(idx):
     text "#[worldLine]":
         size 100
         xalign .5
@@ -118,34 +117,52 @@ init python:
     config.say_menu_text_filter = punctuation_pause
     
     # Translocator
-    def checkLength():
-        global deviceInput
-        if len(deviceInput) > 6:
-            deviceInput = ""
+    def check_length():
+        global device_input
+        if len(device_input) > 6:
+            device_input = ""
 
-    def updateInput(input):
-        # Button Click SFX
-        audioIndex = renpy.random.randint(1, 4)
-        renpy.play(f"audio/sfx/numpad/key_{audioIndex}.mp3", "sound")
+    def update_input(input):
+        global device_input
 
-        # Update deviceInput on Input
-        global deviceInput
-        deviceInput = deviceInput + input
+        # Update device_input on Input
+        if can_input:
+            device_input = device_input + input
+            check_length()
+        
+            # Numpad SFX    
+            audio_index = renpy.random.randint(1, 4)
+            renpy.play(f"audio/sfx/numpad/key_{audio_index}.mp3", "sound")
 
-        if len(deviceInput) == 6 and canInput == True:
-            confirmInput()
+            if len(device_input) == 6:
+                confirm_input()
         else:
-            checkLength()
+            translocator_error()
 
-    def confirmInput():
-        global worldLine
-        worldLine = deviceInput
-        renpy.call("show_chapter", f"{currentScene + 1}") #? useful
+    def translocator_error():
+        responses = [
+            "Hm... The device seems unresponsive...",
+            "It doesn't seem like it works...",
+            "My input doesn't get registered...",
+            "Weird, why doesn't it work?"
+        ]
+        renpy.play("audio/sfx/beep_2.wav", "sound")
+        renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
 
-    def toggleTranslocator():
-        global translocatorVisible
-        translocatorVisible = not translocatorVisible
-        if translocatorVisible: #! Add SFX
+    def confirm_input():
+        global world_line
+        world_line = device_input
+        renpy.call("show_chapter", f"{current_scene + 1}") #? useful
+
+    def toggle_translocator():
+        global translocator_visibility
+        global device_input
+
+        if can_input == True: # Keeping this just in case
+            device_input = ""
+
+        translocator_visibility = not translocator_visibility
+        if translocator_visibility: #! Add SFX
             renpy.hide_screen("translocator")
         else:
             renpy.show_screen("translocator")
@@ -170,7 +187,7 @@ screen translocator_shortcut():
     textbutton "Toggle Translocator": #? Replace with imagebutton
         pos (1580,1020)
         text_style "translocator_shortcut_text"
-        action [Function(toggleTranslocator)]
+        action [Function(toggle_translocator)]
 
 screen translocator():
     zorder 2
@@ -188,52 +205,52 @@ screen translocator():
             yspacing 5
             textbutton "1": 
                 text_style "translocator_text"  
-                action [Function(updateInput, "1")]
+                action [Function(update_input, "1")]
             textbutton "2":
                 text_style "translocator_text"
-                action [Function(updateInput, "2")]
+                action [Function(update_input, "2")]
             textbutton "3":
                 text_style "translocator_text"
-                action [Function(updateInput, "3")]
+                action [Function(update_input, "3")]
             textbutton "A":
                 text_style "translocator_text"
-                action [Function(updateInput, "A")]
+                action [Function(update_input, "A")]
             textbutton "4":
                 text_style "translocator_text"
-                action [Function(updateInput, "4")]
+                action [Function(update_input, "4")]
             textbutton "5":
                 text_style "translocator_text"
-                action [Function(updateInput, "5")]
+                action [Function(update_input, "5")]
             textbutton "6":
                 text_style "translocator_text"
-                action [Function(updateInput, "6")]
+                action [Function(update_input, "6")]
             textbutton "B":
                 text_style "translocator_text"
-                action [Function(updateInput, "B")]
+                action [Function(update_input, "B")]
             textbutton "7":
                 text_style "translocator_text"
-                action [Function(updateInput, "7")]
+                action [Function(update_input, "7")]
             textbutton "8":
                 text_style "translocator_text"
-                action [Function(updateInput, "8")]
+                action [Function(update_input, "8")]
             textbutton "9":
                 text_style "translocator_text"
-                action [Function(updateInput, "9")]
+                action [Function(update_input, "9")]
             textbutton "C":
                 text_style "translocator_text"
-                action [Function(updateInput, "C")]
+                action [Function(update_input, "C")]
             textbutton "*":
                 text_style "translocator_text"
-                action [Function(updateInput, "*")]
+                action [Function(update_input, "*")]
             textbutton "O":
                 text_style "translocator_text"
-                action [Function(updateInput, "O")]
+                action [Function(update_input, "O")]
             textbutton "#":
                 text_style "translocator_text"
-                action [Function(updateInput, "#")]
+                action [Function(update_input, "#")]
             textbutton "D":
                 text_style "translocator_text"
-                action [Function(updateInput, "D")]
+                action [Function(update_input, "D")]
     # Input Frame
     frame:
         xysize (560, 322)
@@ -241,7 +258,7 @@ screen translocator():
         padding (55, 130)
         background "translocator_screen"
         
-        text "#[deviceInput]":
+        text "#[device_input]":
             id "worldLineText"
             font "fonts/dot_matrix/DOTMATRI.TTF"
             antialias True
