@@ -28,11 +28,12 @@
 ## 7th
 
 - [ ] Finish Editing #725FF2
-- [ ] Finish Main Menu Design
+- [ ] Finish Main Menu Design <!--? Might Push to 8th -->
 - [ ] Draw Hallway
-- [ ] Shade and filter fortune Teller
+- [ ] Hatch, Shade and Filter fortune Teller
 - [ ] Draw Cassian Crazy CG
 - [ ] List of expressions
+- [ ] Redraw Maike's Hair <!--? To be considered-->
 
 ## 8th
 
@@ -67,3 +68,43 @@
 
 - [ ] Second Playtest
 - [ ] Release
+
+# Credits (Transfer to Ren'Py Credits)
+
+## Main
+
+Programmer: TheJayduck
+
+Writer: TheJayDuck
+
+Character and CG Artist: TheJayDuck
+
+Bathroom, Living Room, Hallway, Storefront, Bedroom and Space Background Artist: TheJayDuck
+
+Effect Artist: TheJayDuck
+
+## Translocator Model Parts
+
+- LCD: https://grabcad.com/library/lcd-display-16x2-3
+- Numpad: https://grabcad.com/library/delphine-custom-numpad-pcb-1
+- Keycap: https://grabcad.com/library/cherry-mx-keycap-1
+
+## Audio
+
+### Music
+
+### SFX
+
+Space Ambiance: https://freesound.org/people/0ktober/sounds/188831/
+
+Translocator Alarm: https://freesound.org/people/IndigoRay/sounds/339130/
+
+Translocator (Mashup of Multiple Audio Files)
+
+- https://freesound.org/people/gusgus26/sounds/415097/
+- https://freesound.org/people/Resaural/sounds/531421/
+- https://freesound.org/people/Zat_Dude/sounds/402511/
+
+Key Press 1-4: TheJayDuck
+
+Device Beep: TheJayDuck
