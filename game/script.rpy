@@ -2,7 +2,7 @@
 default world_line = "FFFFFF"
 default can_input = False
 define translocator_visibility = False
-define current_scene = 1
+define current_scene = 1 #TODO Implement
 
 define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'screens', 'overlay']
 
@@ -13,8 +13,8 @@ label start:
     return
 
 label show_chapter(idx):
-    hide screen translocator with dissolve
-    hide screen translocator_shortcut with dissolve
+    $ translocator_visibility = False
+    hide screen translocator_shortcut
     $ quick_menu = False
 
     stop music fadeout 2.04
@@ -33,10 +33,10 @@ label show_chapter(idx):
     $ renpy.pause(1.5, hard=True)
     play sound "audio/sfx/warp.mp3" fadein 0.5
     scene space with dissolve 
-    show screen chapter_modal(idx) with dissolve
+    show screen chapter_modal(idx) with dissolve #? Try fade
     
     $ renpy.pause(5, hard=True)
-    hide screen chapter_modal with dissolve
+    hide screen chapter_modal with dissolve #? Try fade
     $ quick_menu = True
     
     stop sound fadeout 15.0
@@ -51,6 +51,23 @@ screen chapter_modal(idx):
 ##
 # Images & Effects
 ##
+image translocator_show:
+    Movie(
+        play="images/translocator/translocator_show.webm",
+        mask="images/translocator/translocator_show_mask.webm",
+        loop=False,
+        image="translocator_idle",
+        start_image="translocator_hidden"
+    )
+
+image translocator_hide:
+    Movie(
+        play="images/translocator/translocator_hide.webm",
+        mask="images/translocator/translocator_hide_mask.webm",
+        loop=False,
+        image="translocator_hidden",
+        start_image="translocator_idle"
+    )
 
 image space:
     "space_1" with dissolve
@@ -64,6 +81,8 @@ image space:
     "space_3" with dissolve
     pause 0.5
     "space_2" with dissolve
+    pause 0.5
+    "space_1" with dissolve #? Try this out
     pause 1.5
     repeat
 
@@ -102,6 +121,8 @@ transform left_to_right:
 # Functions
 ##
 init python:
+    # import time
+
     # Punctuation Pauses
     def punctuation_pause(input):
         punctuations = {
@@ -151,7 +172,6 @@ init python:
                 "..."
             ]
             renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
-        
 
     def confirm_input():
         global world_line
@@ -160,16 +180,17 @@ init python:
 
     def toggle_translocator():
         global translocator_visibility
-        global device_input
+        # global device_input
 
-        if can_input == True: # Keeping this just in case
-            device_input = ""
+        # if can_input == True: # Keeping this just in case
+        #     device_input = ""
 
         translocator_visibility = not translocator_visibility
         if translocator_visibility: #! Add SFX
-            renpy.hide_screen("translocator")
+            renpy.notify("Translocator Visible")
         else:
-            renpy.show_screen("translocator")
+            renpy.notify("Translocator Hidden")
+
 
 ##
 # Translocator Screen
@@ -179,7 +200,7 @@ style translocator_text:
     insensitive_color "#08be4e"
     hover_color "#851400"
     selected_color "#930F00"
-    size 64
+    size 54
     font "fonts/dot_matrix/DOTMATRI.TTF"
 
 style translocator_shortcut_text:
@@ -188,25 +209,58 @@ style translocator_shortcut_text:
     bold True
 
 screen translocator_shortcut():
-    textbutton "Toggle Translocator": #? Replace with imagebutton
-        pos (1580,1020)
-        text_style "translocator_shortcut_text"
-        action [Function(toggle_translocator)]
+    zorder 2
+    imagebutton:
+        pos (1790,920)
+        auto "images/translocator/shortcut/translocator_button_%s.png" sensitive True  action Function(toggle_translocator)
+    # textbutton "Toggle Translocator": #? Replace with imagebutton
+    #     pos (1580,1020)
+    #     text_style "translocator_shortcut_text"
+    #     action [Function(toggle_translocator)]
 
 screen translocator():
     zorder 2
+    if translocator_visibility:
+        add "translocator_show" xalign 1.0 xoffset 200
+    else:
+        add "translocator_hide" xalign 1.0 xoffset 200
+
+    if translocator_visibility:
+        timer 1 action [Show("translocator_numpad")]
+    else:
+        timer 0.1 action [Hide("translocator_numpad")]
+        
+screen translocator_numpad():
+    zorder 2
+
+    # Input Frame
     frame:
         modal True
-        xysize (460, 423)
-        pos (1425, 576)
-        background "images/translocator/translocator_numpad.png"
+        xysize (382, 94)
+        xalign 0.935
+        yalign 0.422
+        padding (10, 10)
+        background Null()
 
-        # Number Grid
+        text "#[device_input]":
+            id "device_input"
+            font "fonts/dot_matrix/DOTMATRI.TTF"
+            antialias True
+            color "#000"
+            size 72
+
+    # Numpad Frame
+    frame:
+        modal True
+        xysize (333,333)
+        xalign 0.974
+        yalign 0.74
+        background Null()
+        padding (20,5)
+        
         grid 4 4:
-            xalign 0.53
-            yalign 0.35
-            xspacing 20
-            yspacing 5
+            xspacing 43
+            yspacing 20
             textbutton "1": 
                 text_style "translocator_text"  
                 action [Function(update_input, "1")]
@@ -255,16 +309,3 @@ screen translocator():
             textbutton "D":
                 text_style "translocator_text"
                 action [Function(update_input, "D")]
-    # Input Frame
-    frame:
-        xysize (560, 322)
-        pos (1420, 336)
-        padding (55, 130)
-        background "translocator_screen"
-        
-        text "#[device_input]":
-            id "device_input"
-            font "fonts/dot_matrix/DOTMATRI.TTF"
-            antialias True
-            color "#000"
-            size 72

@@ -1,4 +1,4 @@
-image maike_talk:
+image maike_talk: #! This feature will probably be removed, and replaced with a static mouth open.
   "chara/maike/mouth_closed.png"
   .2
   "chara/maike/mouth_mid.png"

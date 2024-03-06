@@ -3,10 +3,12 @@ label scene_1:
   # These display lines of dialogue.
   maike "lets see how backgrounds look and decide on a shot that fits it the best."
   
-  scene room_1
+  show screen translocator
+
+  scene bedroom
   show maike
   show franz at right
-  maike "This is room 1"
+  maike "This is bedroom"
 
   scene bathroom
   show maike
