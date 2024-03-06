@@ -212,20 +212,18 @@ screen translocator_shortcut():
     zorder 2
     imagebutton:
         pos (1790,920)
-        auto "images/translocator/shortcut/translocator_button_%s.png" sensitive True  action Function(toggle_translocator)
-    # textbutton "Toggle Translocator": #? Replace with imagebutton
-    #     pos (1580,1020)
-    #     text_style "translocator_shortcut_text"
-    #     action [Function(toggle_translocator)]
+        auto "images/translocator/shortcut/translocator_button_%s.png" 
+        sensitive True  
+        action Function(toggle_translocator)
 
 screen translocator():
     zorder 2
     if translocator_visibility:
         add "translocator_show" xalign 1.0 xoffset 200
-        timer 1 action [Show("translocator_numpad")]
+        timer 1 action [Show("translocator_numpad", transition=dissolve)]
     else:
         add "translocator_hide" xalign 1.0 xoffset 200
-        timer 0.1 action [Hide("translocator_numpad")]
+        timer 0.1 action [Hide("translocator_numpad", transition=dissolve)]
         
 screen translocator_numpad():
     zorder 2
