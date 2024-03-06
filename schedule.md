@@ -32,6 +32,7 @@
 - [ ] Draw Hallway
 - [ ] Shade and filter fortune Teller
 - [ ] Draw Cassian Crazy CG
+- [ ] List of expressions
 
 ## 8th
 
@@ -43,7 +44,6 @@
 ## 9th
 
 - [ ] Finish Editing #140770 and #000000
-- [ ] List of CG's and expressions
 - [ ] Start Drawing Expressions
 - [ ] Beta Read the Script
 
