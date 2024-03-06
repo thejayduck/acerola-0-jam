@@ -25,6 +25,42 @@ label scene_1:
   show franz at right
   maike "This is living_room"
 
+  cassian "Maybe I can write on it now..."
+
+  maike "Let's see how CG's look"
+
+  scene franz_punch with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+
+  franz "I look dumb here."
+
+  scene franz_punch with hpunch
+
+  maike "You always look like that"
+
+  scene maike_scared with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+
+  franz "Wow!" with hpunch
+
+  franz "You can show emotions!!!" 
+
+  $ translocator_alarm()
+  cassian "huh what's that?"
+
+  $ translocator_alarm()
+  cassian "Where is it coming from?"
+
+  $ translocator_alarm(True)
+  # $ renpy.pause(hard=True) #! Pauses story advancement
+  cassian "Ah it's the translocator."
+
+  cassian "Hmmm, I wonder if it works now."
+
+  cassian "If I dont take the chance now, I will never know what this thing is..."
+
+  jump ignore # Jumps to an ending.
+
   maike "You've created a new Ren'Py game."
 
   cassian "Sup!!!!"
@@ -49,3 +85,12 @@ label scene_1:
   jump scene_2
 
   return
+
+label ignore: # A way to structure endings.
+  scene living_room
+  show maike
+  show franz at right
+  $ translocator_visible = False
+  hide screen translocator_shortcut
+  cassian "Argh never mind this crappy device..."
+  cassian "I would rather waste money on more fortune tellers."

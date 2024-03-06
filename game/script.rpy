@@ -1,7 +1,7 @@
 ﻿default device_input = "FFFFFF"
 default world_line = "FFFFFF"
 default can_input = False
-define translocator_visibility = False
+define translocator_visible = False
 define current_scene = 1 #TODO Implement
 
 define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'screens', 'overlay']
@@ -13,7 +13,7 @@ label start:
     return
 
 label show_chapter(idx):
-    $ translocator_visibility = False
+    $ translocator_visible = False
     hide screen translocator_shortcut
     $ quick_menu = False
 
@@ -117,6 +117,14 @@ transform left_to_right:
     linear 2.0 xalign 1.0
     repeat
 
+transform shaking:
+    linear 0.1 xoffset -2 yoffset 2 
+    linear 0.1 xoffset 3 yoffset -3 
+    linear 0.1 xoffset 2 yoffset -2
+    linear 0.1 xoffset -3 yoffset 3
+    linear 0.1 xoffset 0 yoffset 0
+    repeat 2
+
 ##
 # Functions
 ##
@@ -179,17 +187,28 @@ init python:
         renpy.call("show_chapter", f"{current_scene + 1}") #? useful
 
     def toggle_translocator():
-        global translocator_visibility
+        global translocator_visible
         # global device_input
 
         # if can_input == True: # Keeping this just in case
         #     device_input = ""
 
-        translocator_visibility = not translocator_visibility
-        if translocator_visibility: #! Add SFX
+        translocator_visible = not translocator_visible
+        if translocator_visible: #! Add SFX
             renpy.notify("Translocator Visible")
         else:
             renpy.notify("Translocator Hidden")
+
+    def translocator_alarm(force = False):
+        global device_input
+        global can_input
+        global translocator_visible
+        device_input = ""
+        can_input = True
+        renpy.play("audio/sfx/deviceBeep.mp3", "sound")
+
+        if force:
+            translocator_visible = True
 
 
 ##
@@ -218,12 +237,12 @@ screen translocator_shortcut():
 
 screen translocator():
     zorder 2
-    if translocator_visibility:
+    if translocator_visible:
         add "translocator_show" xalign 1.0 xoffset 200
         timer 1 action [Show("translocator_numpad", transition=dissolve)]
     else:
+        timer 0.1 action [Hide("translocator_numpad")]
         add "translocator_hide" xalign 1.0 xoffset 200
-        timer 0.1 action [Hide("translocator_numpad", transition=dissolve)]
         
 screen translocator_numpad():
     zorder 2
