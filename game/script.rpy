@@ -222,12 +222,9 @@ screen translocator():
     zorder 2
     if translocator_visibility:
         add "translocator_show" xalign 1.0 xoffset 200
-    else:
-        add "translocator_hide" xalign 1.0 xoffset 200
-
-    if translocator_visibility:
         timer 1 action [Show("translocator_numpad")]
     else:
+        add "translocator_hide" xalign 1.0 xoffset 200
         timer 0.1 action [Hide("translocator_numpad")]
         
 screen translocator_numpad():
