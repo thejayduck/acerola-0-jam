@@ -292,9 +292,8 @@ screen navigation():
 
         xpos gui.navigation_xpos
         yalign 0.5
-        # if main_menu:
-        #     xalign 0.9
-        #     yalign 0.5
+        if main_menu:
+            yalign 0.6
         # else:
         #     xoffset 90
         #     yalign 0.5
@@ -314,6 +313,8 @@ screen navigation():
         textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Settings") action ShowMenu("preferences")
+
+        textbutton _("Credits") action ShowMenu("credits")
 
         if _in_replay:
 

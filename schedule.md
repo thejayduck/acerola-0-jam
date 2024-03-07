@@ -25,7 +25,7 @@
 - [x] Draw Franz's Hair and Clothing in the CG
 - [x] Draw or Photoshop Street 2 (In front of fortune teller)
 
-## 7th [Current]
+## 7th
 
 - [x] Finish Editing #725FF2
 - [x] Finish Main Menu Design
@@ -34,8 +34,9 @@
 - [x] Draw Cassian Crazy CG
 - [x] List of expressions
 
-## 8th
+## 8th [Current]
 
+- [x] Add Credits Menu
 - [ ] Finish Editing Remainder of #725FF2 and Rewrite Certain Scenes.
 - [ ] Finish Editing #341FC2
 - [ ] Draw Fortune Teller CG (Might be scrapped)
@@ -57,6 +58,7 @@
 ## 11th
 
 - [ ] Improve Writing / Dialogue where necessary
+  - [ ] #725FF2
 - [ ] Fix Bugs
 
 ## 12th

@@ -1,7 +1,8 @@
 label scene_1:
   $can_input = False
   # These display lines of dialogue.
-  scene warp with dissolve 
+  # scene warp with dissolve 
+  # call screen credits
 
   maike "lets see how backgrounds look and decide on a shot that fits it the best."
   
