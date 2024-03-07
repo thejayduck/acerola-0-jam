@@ -5,6 +5,10 @@ screen credits():
   use game_menu(_("Credits"), scroll="viewport"):
     # textbutton _("Return") action Return() yalign 1.0
     vbox:
+      text "Made for {a=https://itch.io/jam/acerola-jam-0/}Acerola 0{/a} Game Jam in 14 Days"
+     
+      null height 24
+
       label "Main"
       text "Programming: TheJayDuck"
       text "Writing: TheJayDuck"
@@ -31,7 +35,7 @@ screen credits():
       "{a=https://freesound.org/people/gusgus26/sounds/415097/}1{/a}, " +\
       "{a=https://freesound.org/people/Resaural/sounds/531421/}2{/a}, " +\
       "{a=https://freesound.org/people/Zat_Dude/sounds/402511/}3{/a}"
-      
+
 style credits_text:
   justify True
     
