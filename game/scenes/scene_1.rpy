@@ -19,6 +19,11 @@ label scene_1:
   show maike
   show franz at right
   maike "This is hallway"
+
+  scene hallway_2
+  show maike
+  show franz at right
+  maike "This is hallway 2"
   
   scene living_room
   show maike
@@ -45,6 +50,15 @@ label scene_1:
 
   franz "You can show emotions!!!" 
 
+  cassian "what does the translocator look like?"
+
+  scene translocator_cg_1 with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+  scene translocator_cg_2 with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+  scene translocator_cg_3 with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+
   $ translocator_alarm()
   cassian "huh what's that?"
 
@@ -58,8 +72,6 @@ label scene_1:
   cassian "Hmmm, I wonder if it works now."
 
   cassian "If I dont take the chance now, I will never know what this thing is..."
-
-  jump ignore # Jumps to an ending.
 
   maike "You've created a new Ren'Py game."
 
@@ -94,3 +106,7 @@ label ignore: # A way to structure endings.
   hide screen translocator_shortcut
   cassian "Argh never mind this crappy device..."
   cassian "I would rather waste money on more fortune tellers."
+
+label .bad_end:
+  "Bad End"
+  return

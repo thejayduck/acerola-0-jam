@@ -1,8 +1,9 @@
 ﻿default device_input = "FFFFFF"
 default world_line = "FFFFFF"
+default device_target = "ending.bad_end_1"
 default can_input = False
 define translocator_visible = False
-define current_scene = 1 #TODO Implement
+# define next_scene = "scene_2"
 
 define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'screens', 'overlay']
 
@@ -12,7 +13,7 @@ label start:
     jump scene_1
     return
 
-label show_chapter(idx):
+label show_chapter():
     $ translocator_visible = False
     hide screen translocator_shortcut
     $ quick_menu = False
@@ -33,7 +34,7 @@ label show_chapter(idx):
     $ renpy.pause(1.5, hard=True)
     play sound "audio/sfx/warp.mp3" fadein 0.5
     scene space with dissolve 
-    show screen chapter_modal(idx) with dissolve #? Try fade
+    show screen chapter_modal with dissolve #? Try fade
     
     $ renpy.pause(5, hard=True)
     hide screen chapter_modal with dissolve #? Try fade
@@ -42,7 +43,9 @@ label show_chapter(idx):
     stop sound fadeout 15.0
     scene black with fade
 
-screen chapter_modal(idx):
+    $ renpy.call(device_target)
+
+screen chapter_modal():
     text "#[world_line]":
         size 100
         xalign .5
@@ -51,6 +54,14 @@ screen chapter_modal(idx):
 ##
 # Images & Effects
 ##
+image translocator_main_menu:
+    Movie(
+        play="images/main_menu/translocator_turn.webm",
+        mask="images/main_menu/translocator_turn_mask.webm",
+        loop=True,
+        size=(768,768)
+    )
+
 image translocator_show:
     Movie(
         play="images/translocator/translocator_show.webm",
@@ -183,8 +194,9 @@ init python:
 
     def confirm_input():
         global world_line
+        global device_target
         world_line = device_input
-        renpy.call("show_chapter", f"{current_scene + 1}") #? useful
+        renpy.call("show_chapter") #? useful
 
     def toggle_translocator():
         global translocator_visible
@@ -209,6 +221,10 @@ init python:
 
         if force:
             translocator_visible = True
+    
+    # Scene Jump
+    def jump_to_scene(target):
+        renpy.jump(target)
 
 
 ##
@@ -238,11 +254,11 @@ screen translocator_shortcut():
 screen translocator():
     zorder 2
     if translocator_visible:
-        add "translocator_show" xalign 1.0 xoffset 200
-        timer 1 action [Show("translocator_numpad", transition=dissolve)]
+        add "translocator_show" xalign 0.992
+        timer 0.5 action [Show("translocator_numpad", transition=dissolve)]
     else:
         timer 0.1 action [Hide("translocator_numpad")]
-        add "translocator_hide" xalign 1.0 xoffset 200
+        add "translocator_hide" xalign 0.992
         
 screen translocator_numpad():
     zorder 2

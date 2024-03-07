@@ -290,13 +290,14 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        # xpos gui.navigation_xpos
-        if main_menu:
-            xalign 0.5
-            yalign 0.7
-        else:
-            xoffset 90
-            yalign 0.5
+        xpos gui.navigation_xpos
+        yalign 0.5
+        # if main_menu:
+        #     xalign 0.9
+        #     yalign 0.5
+        # else:
+        #     xoffset 90
+        #     yalign 0.5
 
         spacing gui.navigation_spacing
 
@@ -361,6 +362,9 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
+
+    add "translocator_main_menu":
+        pos (1000, 156)
 
     ## This empty frame darkens the main menu.
     frame:
