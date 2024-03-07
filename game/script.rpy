@@ -32,16 +32,17 @@ label show_chapter():
     stop sound fadeout 1.0
     
     $ renpy.pause(1.5, hard=True)
-    play sound "audio/sfx/warp.mp3" fadein 0.5
-    scene space with dissolve 
+    play music "audio/bgm/warp.mp3" fadein 0.5
+    scene warp with dissolve 
     show screen chapter_modal with dissolve #? Try fade
     
-    $ renpy.pause(5, hard=True)
+    $ renpy.pause(6.5, hard=True)
     hide screen chapter_modal with dissolve #? Try fade
     $ quick_menu = True
     
-    stop sound fadeout 15.0
     scene black with fade
+    play sound "audio/sfx/chapter_start.mp3"
+    stop music fadeout 5
 
     $ renpy.call(device_target)
 
@@ -66,19 +67,29 @@ image translocator_show:
     Movie(
         play="images/translocator/translocator_show.webm",
         mask="images/translocator/translocator_show_mask.webm",
-        loop=False,
-        image="translocator_idle",
-        start_image="translocator_hidden"
+        keep_last_frame=True,
+        loop=False
     )
 
 image translocator_hide:
     Movie(
         play="images/translocator/translocator_hide.webm",
         mask="images/translocator/translocator_hide_mask.webm",
-        loop=False,
-        image="translocator_hidden",
-        start_image="translocator_idle"
+        keep_last_frame=True,
+        loop=False
     )
+
+image warp:
+    "warp_1" with dissolve
+    pause 1.0
+    "warp_2" with dissolve
+    pause 1.5
+    "warp_3" with dissolve
+    pause 1.5
+    "warp_4" with dissolve
+    pause 1.5
+    "warp_5" with dissolve
+    pause 2.0
 
 image space:
     "space_1" with dissolve

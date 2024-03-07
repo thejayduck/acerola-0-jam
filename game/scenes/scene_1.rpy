@@ -1,6 +1,8 @@
 label scene_1:
   $can_input = False
   # These display lines of dialogue.
+  scene warp with dissolve 
+
   maike "lets see how backgrounds look and decide on a shot that fits it the best."
   
   show screen translocator
@@ -50,6 +52,13 @@ label scene_1:
 
   franz "You can show emotions!!!" 
 
+  scene cassian_crazy with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+
+  franz "What... the hell happened to you dude?"
+
+  cassian "Haha, my acting seems good right?"
+
   cassian "what does the translocator look like?"
 
   scene translocator_cg_1 with Dissolve(2.0)
@@ -58,14 +67,31 @@ label scene_1:
   $ renpy.pause(1.5, hard=True)
   scene translocator_cg_3 with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
-
+  
   $ translocator_alarm()
-  cassian "huh what's that?"
+  # if not translocator_visible:
+  #   cassian "huh what's that?"
+  # else:
+  #   cassian "oh its this."
 
-  $ translocator_alarm()
-  cassian "Where is it coming from?"
+  # if not translocator_visible:
+  #   $ translocator_alarm()
+  #   cassian "Where is it coming from?"
+  # else:
+  #   cassian "oh its this."
+
+  $ patience = 3
+
+  while patience > 0:
+    $ translocator_alarm()
+    cassian "Where is it coming from?"
+    
+    $ patience -= 1
 
   $ translocator_alarm(True)
+  cassian "oh its the device."
+
+
   # $ renpy.pause(hard=True) #! Pauses story advancement
   cassian "Ah it's the translocator."
 

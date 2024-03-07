@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Acerola 0")
+define config.name = _("Fractured Divergence")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -37,7 +37,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "Acerola0"
+define build.name = "FracturedDivergence"
 
 
 ## Sounds and music ############################################################
@@ -48,13 +48,13 @@ define build.name = "Acerola0"
 
 define config.has_sound = True
 define config.has_music = True
-define config.has_voice = True
+define config.has_voice = False
 
 
 ## To allow the user to play a test sound on the sound or voice channel,
 ## uncomment a line below and use it to set a sample sound to play.
 
-# define config.sample_sound = "sample-sound.ogg"
+define config.sample_sound = "audio/sfx/sample-sound.ogg"
 # define config.sample_voice = "sample-voice.ogg"
 
 
@@ -62,7 +62,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/bgm/main-menu-theme.mp3"
 
 
 ## Transitions #################################################################
@@ -73,8 +73,8 @@ define config.has_voice = True
 
 ## Entering or exiting the game menu.
 
-define config.enter_transition = dissolve
-define config.exit_transition = dissolve
+define config.enter_transition = fade
+define config.exit_transition = fade
 
 
 ## Between screens of the game menu.
@@ -84,7 +84,7 @@ define config.intra_transition = dissolve
 
 ## A transition that is used after a game has been loaded.
 
-define config.after_load_transition = None
+define config.after_load_transition = fade
 
 
 ## Used when entering the main menu after the game has ended.
@@ -143,7 +143,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "Acerola0-1709293188"
+define config.save_directory = "fractureddivergence-1709293188"
 
 
 ## Icon ########################################################################

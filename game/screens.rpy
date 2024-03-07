@@ -313,7 +313,7 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Settings") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -346,7 +346,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
-    xalign 0.5
+    # xalign 0.5
 
 
 
@@ -364,7 +364,7 @@ screen main_menu():
     add gui.main_menu_background
 
     add "translocator_main_menu":
-        pos (1000, 156)
+        pos (1000, 200)
 
     ## This empty frame darkens the main menu.
     frame:

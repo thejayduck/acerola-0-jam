@@ -15,7 +15,7 @@
 - [x] Hitting Franz on the head CG
 - [x] Translocator 3D Model
 
-## 6th [Current]
+## 6th
 
 - [x] Translocator image button shortcut
 - [x] Translocator sound indicator
@@ -25,18 +25,18 @@
 - [x] Draw Franz's Hair and Clothing in the CG
 - [x] Draw or Photoshop Street 2 (In front of fortune teller)
 
-## 7th
+## 7th [Current]
 
-- [ ] Finish Editing #725FF2
-- [ ] Finish Main Menu Design <!--? Might Push to 8th -->
-- [ ] Draw Hallway
-- [ ] Hatch, Shade and Filter fortune Teller
-- [ ] Draw Cassian Crazy CG
-- [ ] List of expressions
-- [ ] Redraw Maike's Hair <!--? To be considered-->
+- [x] Finish Editing #725FF2
+- [x] Finish Main Menu Design
+- [x] Draw Hallway
+- [x] Hatch, Shade and Filter fortune Teller
+- [x] Draw Cassian Crazy CG
+- [x] List of expressions
 
 ## 8th
 
+- [ ] Finish Editing Remainder of #725FF2 and Rewrite Certain Scenes.
 - [ ] Finish Editing #341FC2
 - [ ] Draw Fortune Teller CG (Might be scrapped)
 - [ ] Draw or Photoshop Street 1 (City)
@@ -63,11 +63,23 @@
 
 - [ ] First Playtest
 - [ ] Polishing
+<!--? Possible Extras! -->
+- [ ] Redraw Maike's Hair
 
 ## 13th (Jam ends at 7.59AM on 14th)
 
 - [ ] Second Playtest
 - [ ] Release
+
+# Expressions
+
+## Maike
+
+Tired, Shocked, Ignore (eyes closed), Smirk
+
+## Franz
+
+Sad, Excited, Smiling, Proud
 
 # Credits (Transfer to Ren'Py Credits)
 
@@ -93,9 +105,14 @@ Effect Artist: TheJayDuck
 
 ### Music
 
+https://freesound.org/people/younoise/sounds/614947/
+
 ### SFX
 
 Space Ambiance: https://freesound.org/people/0ktober/sounds/188831/
+
+https://freesound.org/people/Unaxete/sounds/329795/
+https://freesound.org/people/cliftonmcarlson/sounds/725828/
 
 Translocator Alarm: https://freesound.org/people/IndigoRay/sounds/339130/
 
