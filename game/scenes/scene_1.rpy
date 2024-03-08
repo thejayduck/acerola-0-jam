@@ -8,7 +8,7 @@ label scene_1:
   
   "Let's try to enter a number... automatically"
 
-  $ force_input("313600")
+  # $ force_input("313600")
 
   scene bedroom
   show maike
@@ -34,6 +34,11 @@ label scene_1:
   show maike
   show franz at right
   maike "This is living_room"
+
+  scene city_empty
+  show maike
+  show franz at right
+  maike "This is city_empty"
 
   cassian "Maybe I can write on it now..."
 

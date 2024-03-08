@@ -176,6 +176,7 @@ init python:
 
         if force:
             translocator_visible = True
+            renpy.show_screen("translocator")
     
     # Scene Jump
     def jump_to_scene(target):
