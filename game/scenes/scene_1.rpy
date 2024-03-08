@@ -6,7 +6,9 @@ label scene_1:
 
   maike "lets see how backgrounds look and decide on a shot that fits it the best."
   
-  show screen translocator
+  "Let's try to enter a number... automatically"
+
+  $ force_input("313600")
 
   scene bedroom
   show maike

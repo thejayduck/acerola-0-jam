@@ -13,45 +13,6 @@ label start:
     jump scene_1
     return
 
-label show_chapter():
-    $ translocator_visible = False
-    hide screen translocator_shortcut
-    $ quick_menu = False
-
-    stop music fadeout 2.04
-    play sound "audio/sfx/translocator.mp3"
-    
-    show lightning onlayer lightning
-    pause 1
-    
-    $ renpy.pause(3, hard=True)
-    scene black with dissolve
-
-    $ renpy.pause(1.5, hard=True)
-    hide lightning onlayer lightning with dissolve
-    stop sound fadeout 1.0
-    
-    $ renpy.pause(1.5, hard=True)
-    play music "audio/bgm/warp.mp3" fadein 0.5
-    scene warp with dissolve 
-    show screen chapter_modal with dissolve #? Try fade
-    
-    $ renpy.pause(6.5, hard=True)
-    hide screen chapter_modal with dissolve #? Try fade
-    $ quick_menu = True
-    
-    scene black with fade
-    play sound "audio/sfx/chapter_start.mp3"
-    stop music fadeout 5
-
-    $ renpy.call(device_target)
-
-screen chapter_modal():
-    text "#[world_line]":
-        size 100
-        xalign .5
-        yalign .5
-
 ##
 # Images & Effects
 ##
@@ -78,47 +39,6 @@ image translocator_hide:
         keep_last_frame=True,
         loop=False
     )
-
-image warp:
-    "warp_1" with dissolve
-    pause 1.0
-    "warp_2" with dissolve
-    pause 1.5
-    "warp_3" with dissolve
-    pause 1.5
-    "warp_4" with dissolve
-    pause 1.5
-    "warp_5" with dissolve
-    pause 2.0
-
-image space:
-    "space_1" with dissolve
-    pause 0.5
-    "space_2" with dissolve
-    pause 0.5
-    "space_3" with dissolve
-    pause 0.5
-    "space_4" with dissolve
-    pause 0.5
-    "space_3" with dissolve
-    pause 0.5
-    "space_2" with dissolve
-    pause 0.5
-    "space_1" with dissolve #? Try this out
-    pause 1.5
-    repeat
-
-image lightning:
-    blend "add"
-    "lightning_1" with dissolve
-    pause 0.1
-    "lightning_2" with dissolve
-    pause 0.1
-    "lightning_3" with dissolve
-    pause 0.1
-    "lightning_4" with dissolve
-    pause 0.1
-    repeat
 
 image film_grain:
     blend "add"
@@ -173,12 +93,12 @@ init python:
         if len(device_input) > 6:
             device_input = ""
 
-    def update_input(input):
+    def update_input(input, forced = False):
         global device_input
 
         # Update device_input on Input
-        if can_input:
-            device_input = device_input + input
+        if can_input or forced:
+            device_input += input
             check_length()
         
             # Numpad SFX    
@@ -193,15 +113,38 @@ init python:
     def translocator_error(generic = True):
         renpy.play("audio/sfx/beep_2.wav", "sound")
         
-        if not generic:
-            responses = [
-                "Hm... The device seems unresponsive...",
-                "It doesn't seem like it works...",
-                "My input doesn't get registered...",
-                "Weird, why doesn't it work?",
-                "..."
-            ]
-            renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
+        # if not generic:
+        #     responses = [
+        #         "Hm... The device seems unresponsive...",
+        #         "It doesn't seem like it works...",
+        #         "My input doesn't get registered...",
+        #         "Weird, why doesn't it work?",
+        #         "..."
+        #     ]
+        #     renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
+
+    def force_input(target):
+        global device_input
+        global translocator_visible
+
+        translocator_visible = True
+        renpy.show_screen("translocator")
+        renpy.hide_screen("translocator_shortcut")
+        device_input = ""
+        
+        renpy.pause(1.5, hard=True)
+        
+        index = 0
+        while index < 6:
+            character = target[index]
+            update_input(character, True)
+
+            pause_dur = renpy.random.uniform(0.5, 0.9)
+            renpy.pause(pause_dur, hard=True)
+            
+            index += 1
+            
+        confirm_input()
 
     def confirm_input():
         global world_line
@@ -218,9 +161,10 @@ init python:
 
         translocator_visible = not translocator_visible
         if translocator_visible: #! Add SFX
-            renpy.notify("Translocator Visible")
+            renpy.play("audio/sfx/pick_up.mp3", "sound")
+            renpy.show_screen("translocator")
         else:
-            renpy.notify("Translocator Hidden")
+            renpy.play("audio/sfx/put_down.mp3", "sound")
 
     def translocator_alarm(force = False):
         global device_input
@@ -228,7 +172,7 @@ init python:
         global translocator_visible
         device_input = ""
         can_input = True
-        renpy.play("audio/sfx/deviceBeep.mp3", "sound")
+        renpy.play("audio/sfx/device_beep.mp3", "sound")
 
         if force:
             translocator_visible = True
@@ -249,11 +193,6 @@ style translocator_text:
     size 54
     font "fonts/dot_matrix/DOTMATRI.TTF"
 
-style translocator_shortcut_text:
-    color "#000"
-    hover_color "#5c5c5c"
-    bold True
-
 screen translocator_shortcut():
     zorder 2
     imagebutton:
@@ -268,7 +207,7 @@ screen translocator():
         add "translocator_show" xalign 0.992
         timer 0.5 action [Show("translocator_numpad", transition=dissolve)]
     else:
-        timer 0.1 action [Hide("translocator_numpad")]
+        timer 0.1 action [Hide("translocator_numpad", transition=dissolve)]
         add "translocator_hide" xalign 0.992
         
 screen translocator_numpad():
@@ -281,7 +220,7 @@ screen translocator_numpad():
         xalign 0.935
         yalign 0.422
         padding (10, 10)
-        background Null()
+        background None
 
         text "#[device_input]":
             id "device_input"
@@ -296,7 +235,7 @@ screen translocator_numpad():
         xysize (333,333)
         xalign 0.974
         yalign 0.74
-        background Null()
+        background None
         padding (20,5)
         
         grid 4 4:
