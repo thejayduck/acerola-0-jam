@@ -8,7 +8,6 @@ label scene_1:
   
   "Let's try to enter a number... automatically"
 
-  # $ force_input("313600")
 
   scene bedroom
   show maike
@@ -36,9 +35,13 @@ label scene_1:
   maike "This is living_room"
 
   scene city_empty
-  show maike
-  show franz at right
   maike "This is city_empty"
+
+  scene restaurant
+  maike "This is restaurant"
+
+  scene fortune_teller
+  maike "This is fortune_teller"
 
   cassian "Maybe I can write on it now..."
 
@@ -56,6 +59,9 @@ label scene_1:
   scene maike_scared with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
 
+  scene maike_scared_2 with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+
   franz "Wow!" with hpunch
 
   franz "You can show emotions!!!" 
@@ -63,11 +69,16 @@ label scene_1:
   scene cassian_crazy with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
 
+  scene cassian_crazy_2 with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+
   franz "What... the hell happened to you dude?"
 
   cassian "Haha, my acting seems good right?"
 
   cassian "what does the translocator look like?"
+
+  $ force_input("313600")
 
   scene translocator_cg_1 with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
