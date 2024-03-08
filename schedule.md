@@ -37,23 +37,35 @@
 ## 8th [Current]
 
 - [x] Add Credits Menu
-- [ ] Finish Editing Remainder of #725FF2 and Rewrite Certain Scenes.
-- [ ] Finish Editing #341FC2
-- [ ] Draw Fortune Teller CG (Might be scrapped)
-- [ ] Draw or Photoshop Street 1 (City)
-- [ ] Draw or Photoshop city overview (empty world)
+- [x] Finish Editing Remainder of #725FF2 and Rewrite Certain Scenes.
+- [x] Finish Editing #341FC2
+- [ ] Draw or Photoshop Street 1 (City) <!--! Scrapped -->
+- [x] Draw or Photoshop city overview (empty world)
 
 ## 9th
 
 - [ ] Finish Editing #140770 and #000000
-- [ ] Start Drawing Expressions
 - [ ] Beta Read the Script
+- [ ] Work on itch.io page
+- [ ] Find Music
+- [ ] Finish Drawing Expressions
+  - Maike
+    - [ ] Default
+    - [ ] Tired
+    - [ ] Ignore
+    - [ ] Smirk
+    - [ ] Scared
+  - Franz
+    - [x] Default
+    - [x] Happy
+    - [ ] Sad
+    - [ ] Annoyed
+    - [ ] Shocked
 
 ## 10th
 
 - [ ] Transfer Edited Text to Ren'py
 - [ ] Fix Bugs
-- [ ] Work on itch.io page
 
 ## 11th
 
@@ -71,7 +83,12 @@
 ## 13th (Jam ends at 7.59AM on 14th)
 
 - [ ] Second Playtest
+- [ ] Archive Files
 - [ ] Release
+
+# Possible Bugs
+
+Translocator doesnt show up when menu is opened during force input
 
 # Expressions
 
@@ -81,7 +98,7 @@ Tired, Shocked, Ignore (eyes closed), Smirk
 
 ## Franz
 
-Sad, Excited, Smiling, Proud
+Sad x, Excited x, Smiling x, Proud
 
 # Credits (Transfer to Ren'Py Credits)
 
