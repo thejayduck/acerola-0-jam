@@ -34,7 +34,7 @@
 - [x] Draw Cassian Crazy CG
 - [x] List of expressions
 
-## 8th [Current]
+## 8th
 
 - [x] Add Credits Menu
 - [x] Finish Editing Remainder of #725FF2 and Rewrite Certain Scenes.
@@ -44,41 +44,51 @@
 
 ## 9th
 
-- [ ] Finish Editing #140770 and #000000
-- [ ] Beta Read the Script
-- [ ] Work on itch.io page
-- [ ] Find Music
-- [ ] Finish Drawing Expressions
+- [x] Translocator CG 4
+- [x] Finish Editing #140770 and #000000
+- [x] Finish Drawing Banner (The one with the hand)
+- [x] Beta Read the Script
+  - [x] #FFFFFF
+  - [x] #725FF2
+  - [x] #341FC2
+  - [x] #313600
+  - [x] #000000
+- [x] Work on itch.io page
+- [x] Finish Drawing Expressions
   - Maike
-    - [ ] Default
-    - [ ] Tired
-    - [ ] Ignore
-    - [ ] Smirk
-    - [ ] Scared
+    - [x] Default
+    - [x] Tired
+    <!-- - [ ] Ignore -->
+    - [x] Smirk
+    - [x] Scared
   - Franz
     - [x] Default
     - [x] Happy
-    - [ ] Sad
-    - [ ] Annoyed
-    - [ ] Shocked
+    - [x] Tired
+    - [x] Sad
+    - [x] Annoyed
+    - [x] Surprised
 
-## 10th
+## 10th [Current]
 
 - [ ] Transfer Edited Text to Ren'py
+- [ ] Quick Gameplay Test
+- [ ] Find Music
+  - [ ] Weird Abstract Music
+  - [ ] Upbeat Music
+  - [ ] Mysterious Music
+  - [ ] Spacey, left alone kinda feeling music
 - [ ] Fix Bugs
 
 ## 11th
 
 - [ ] Improve Writing / Dialogue where necessary
-  - [ ] #725FF2
 - [ ] Fix Bugs
 
 ## 12th
 
 - [ ] First Playtest
 - [ ] Polishing
-<!--? Possible Extras! -->
-- [ ] Redraw Maike's Hair
 
 ## 13th (Jam ends at 7.59AM on 14th)
 
@@ -89,16 +99,6 @@
 # Possible Bugs
 
 Translocator doesnt show up when menu is opened during force input
-
-# Expressions
-
-## Maike
-
-Tired, Shocked, Ignore (eyes closed), Smirk
-
-## Franz
-
-Sad x, Excited x, Smiling x, Proud
 
 # Credits (Transfer to Ren'Py Credits)
 
