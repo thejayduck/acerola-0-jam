@@ -1,5 +1,5 @@
 # Others
-define config.speaking_attribute = "speaking"
+# define config.speaking_attribute = "speaking"
 define config.say_attribute_transition = dissolve
 
 # Characters

@@ -1,9 +1,7 @@
 screen credits():
   style_prefix "credits"
   tag menu
-  # add "images/main_menu/main_menu.png" matrixcolor BrightnessMatrix(-0.1)
   use game_menu(_("Credits"), scroll="viewport"):
-    # textbutton _("Return") action Return() yalign 1.0
     vbox:
       text "Made for {a=https://itch.io/jam/acerola-jam-0/}Acerola 0{/a} Game Jam in 14 Days"
      

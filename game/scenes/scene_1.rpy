@@ -2,30 +2,35 @@ label scene_1:
   $can_input = False
   # These display lines of dialogue.
   # scene warp with dissolve 
-  # call screen credits
 
   maike "lets see how backgrounds look and decide on a shot that fits it the best."
   
   "Let's try to enter a number... automatically"
 
 
-  scene bedroom
+  scene bedroom:
+    animated_glitch("bedroom", chroma=True, offset=10)
+    parallel:
+      function WaveShader(amp=0.2, speed=0.25)
   show maike
   show franz at right
   maike "This is bedroom"
 
+  scene bedroom with dissolve
+  "yay"
+
   scene bathroom
-  show maike
+  show maike scared
   show franz at right
   maike "This is bathroom"
   
   scene hallway
-  show maike
+  show maike smirk
   show franz at right
   maike "This is hallway"
 
   scene hallway_2
-  show maike
+  show maike tired crossed
   show franz at right
   maike "This is hallway 2"
   
@@ -78,7 +83,6 @@ label scene_1:
 
   cassian "what does the translocator look like?"
 
-  $ force_input("313600")
 
   scene translocator_cg_1 with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
@@ -86,6 +90,10 @@ label scene_1:
   $ renpy.pause(1.5, hard=True)
   scene translocator_cg_3 with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
+  scene translocator_cg_4 with Dissolve(2.0)
+  $ renpy.pause(1.5, hard=True)
+
+  $ force_input("313600")
   
   $ translocator_alarm()
   # if not translocator_visible:

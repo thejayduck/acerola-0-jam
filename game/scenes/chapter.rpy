@@ -36,8 +36,9 @@ label show_chapter():
 transform modal_scroll():
     xcenter 0.5 yanchor 0.0 ypos 1.0
     ypos 150
-    ease 4 ypos -1750
-    ease 1.0 ypos -1700
+    ease 4 ypos -1710
+    ease .7 ypos -1697
+    ease .3 ypos -1700
     # ease 6 zoom 1.5 ypos -2750
 
 screen chapter_modal():
