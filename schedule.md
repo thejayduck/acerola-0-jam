@@ -73,6 +73,7 @@
 
 - [ ] Transfer Edited Text to Ren'py
 - [ ] Quick Gameplay Test
+- [ ] Add Completed Sprites for Franz
 - [ ] Find Music
   - [ ] Weird Abstract Music
   - [ ] Upbeat Music
