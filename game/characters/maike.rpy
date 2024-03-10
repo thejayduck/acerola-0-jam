@@ -26,13 +26,13 @@ layeredimage maike:
 image maike_default:
   "chara/maike/e_default.png"
   choice:
-      2.0
+    2.0
   choice:
-      3.1 
+    3.1 
   choice:
-      4.2
+    4.2
   choice:
-      3.3
+    3.3
   "chara/maike/e_closed.png"
   .13
   repeat
@@ -40,13 +40,13 @@ image maike_default:
 image maike_scared:
   "chara/maike/e_scared.png"
   choice:
-      2.0
+    2.0
   choice:
-      3.1 
+    3.1 
   choice:
-      4.2
+    4.2
   choice:
-      3.3
+    3.3
   "chara/maike/e_closed.png"
   .13
   repeat
@@ -54,13 +54,13 @@ image maike_scared:
 image maike_smirk:
   "chara/maike/e_tired.png"
   choice:
-      2.0
+    2.0
   choice:
-      3.1 
+    3.1 
   choice:
-      4.2
+    4.2
   choice:
-      3.3
+    3.3
   "chara/maike/e_closed.png"
   .13
   repeat
@@ -68,13 +68,13 @@ image maike_smirk:
 image maike_tired:
   "chara/maike/e_tired.png"
   choice:
-      2.0
+    2.0
   choice:
-      3.1 
+    3.1 
   choice:
-      4.2
+    4.2
   choice:
-      3.3
+    3.3
   "chara/maike/e_closed.png"
   .13
   repeat
