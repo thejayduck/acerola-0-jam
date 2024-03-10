@@ -20,6 +20,9 @@ screen credits():
       null height 48
 
       label "Extra"
+      text "Effects"
+      text " - {a=https://github.com/SoDaRa/RenpyWaveShader/}RenpyWaveShader{/a}"
+      text " - {a=https://github.com/Gouvernathor/renpy-ChromaGlitch}renpy-ChromaGlitch{/a}"
       text "Music"
       text " - {a=https://freesound.org/people/younoise/sounds/614947/}Main Menu{/a}"
       text "SFX"

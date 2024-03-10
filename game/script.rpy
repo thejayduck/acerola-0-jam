@@ -1,7 +1,8 @@
 ﻿default device_input = "FFFFFF"
 default world_line = "FFFFFF"
-default device_target = "ending.bad_end_1"
-default can_input = False
+default device_target = "mess_up"
+default active_background = "null"
+define can_input = False
 define translocator_visible = False
 # define next_scene = "scene_2"
 
@@ -66,6 +67,15 @@ transform shaking:
     linear 0.1 xoffset -3 yoffset 3
     linear 0.1 xoffset 0 yoffset 0
     repeat 2
+
+transform distort(target):
+    animated_glitch(target, chroma=True, offset=10)
+    parallel:
+        function WaveShader(amp=0.2, speed=0.25, double="horizontal")
+
+transform nausea(target):
+    parallel:
+        function WaveShader(period=3.495, direction="vertical")
 
 ##
 # Functions

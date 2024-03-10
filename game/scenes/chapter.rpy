@@ -1,4 +1,6 @@
 label show_chapter():
+  scene active_background at distort(active_background) with dissolve
+
   $ translocator_visible = False
   hide screen translocator_shortcut
   $ quick_menu = False

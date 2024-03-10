@@ -8,16 +8,10 @@ label scene_1:
   "Let's try to enter a number... automatically"
 
 
-  scene bedroom:
-    animated_glitch("bedroom", chroma=True, offset=10)
-    parallel:
-      function WaveShader(amp=0.2, speed=0.25)
+  scene bedroom
   show maike
   show franz at right
   maike "This is bedroom"
-
-  scene bedroom with dissolve
-  "yay"
 
   scene bathroom
   show maike scared
@@ -26,23 +20,25 @@ label scene_1:
   
   scene hallway
   show maike smirk
-  show franz at right
+  show franz happy hip at right
   maike "This is hallway"
 
   scene hallway_2
   show maike tired crossed
-  show franz at right
+  show franz sad at right
   maike "This is hallway 2"
   
   scene living_room
   show maike
-  show franz at right
+  show franz surprised at right
   maike "This is living_room"
 
   scene city_empty
+  show franz tired at right
   maike "This is city_empty"
 
   scene restaurant
+  show franz annoyed at right
   maike "This is restaurant"
 
   scene fortune_teller
@@ -93,6 +89,8 @@ label scene_1:
   scene translocator_cg_4 with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
 
+  scene bedroom with dissolve
+  $ active_background = "bedroom"
   $ force_input("313600")
   
   $ translocator_alarm()
