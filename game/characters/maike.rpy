@@ -8,6 +8,8 @@ layeredimage maike:
       "chara/maike/base/smirk.png"
     attribute tired:
       "chara/maike/base/tired.png"
+    attribute closed:
+      "chara/maike/base/scared.png"
   group pose:
     attribute hip default:
       "chara/maike/pose_1.png"
@@ -22,6 +24,8 @@ layeredimage maike:
       "maike_smirk"
     attribute tired:
       "maike_tired"
+    attribute closed:
+      "chara/maike/e_closed.png"
 
 image maike_default:
   "chara/maike/e_default.png"

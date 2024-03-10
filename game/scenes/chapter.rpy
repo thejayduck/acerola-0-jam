@@ -1,5 +1,5 @@
-label show_chapter():
-  scene active_background at distort(active_background) with dissolve
+label show_chapter(scene_jump, scene_id):
+  show active_background at distort(active_background) with dissolve
 
   $ translocator_visible = False
   hide screen translocator_shortcut
@@ -23,7 +23,7 @@ label show_chapter():
   $ renpy.pause(1.5, hard=True)
   play music "audio/bgm/warp_2.mp3" fadein 0.5
   scene warp with dissolve 
-  show screen chapter_modal with dissolve
+  show screen chapter_modal(scene_id) with dissolve
   
   $ renpy.pause(6, hard=True)
   $ quick_menu = True
@@ -33,7 +33,7 @@ label show_chapter():
   play sound "audio/sfx/chapter_start.mp3"
   stop music fadeout 5
 
-  $ renpy.call(device_target)
+  $ renpy.call(scene_jump)
 
 transform modal_scroll():
     xcenter 0.5 yanchor 0.0 ypos 1.0
@@ -43,7 +43,7 @@ transform modal_scroll():
     ease .3 ypos -1700
     # ease 6 zoom 1.5 ypos -2750
 
-screen chapter_modal():
+screen chapter_modal(scene_id):
   key "K_ESCAPE" action NullAction()
   key "K_MENU" action NullAction()
   key "mouseup_3" action NullAction()
@@ -74,7 +74,7 @@ screen chapter_modal():
       text "#Z7A8B9"
       text "#C1D2E3"
       null height 24
-      text"#[world_line]":
+      text"#[scene_id]":
         color "FFFFFF"
         size 120
       null height 24

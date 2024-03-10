@@ -12,6 +12,8 @@ layeredimage franz:
       "chara/franz/base/tired.png"
     attribute annoyed:
       "chara/franz/base/annoyed.png"
+    attribute proud:
+      "chara/franz/base/default.png"
   group pose:
     attribute point default:
       "chara/franz/pose_1.png"
@@ -29,6 +31,8 @@ layeredimage franz:
     attribute tired:
       "chara/franz/e_closed.png"
     attribute annoyed:
+      "franz_annoyed"
+    attribute proud:
       "franz_annoyed"
 
 image franz_default:

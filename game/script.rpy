@@ -1,10 +1,12 @@
 ﻿default device_input = "FFFFFF"
-default world_line = "FFFFFF"
-default device_target = "mess_up"
-default active_background = "null"
+
+default active_background = None
 define can_input = False
 define translocator_visible = False
-# define next_scene = "scene_2"
+
+default desired_input = None
+default correct_exit = None
+default wrong_exit = None
 
 define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'screens', 'overlay']
 
@@ -73,15 +75,27 @@ transform distort(target):
     parallel:
         function WaveShader(amp=0.2, speed=0.25, double="horizontal")
 
-transform nausea(target):
+transform nausea(target, amp = 12):
     parallel:
-        function WaveShader(period=3.495, direction="vertical")
+        function WaveShader(amp=amp, period=3.495, direction="vertical")
 
 ##
 # Functions
 ##
 init python:
     # import time
+
+    # target input, exit on right input, exit on wrong input
+    def set_route(background, route, correct, wrong):
+        global active_background
+        global desired_input
+        global correct_exit
+        global wrong_exit
+        
+        active_background = background
+        desired_input = route
+        correct_exit = correct
+        wrong_exit = wrong
 
     # Punctuation Pauses
     def punctuation_pause(input):
@@ -98,27 +112,57 @@ init python:
     config.say_menu_text_filter = punctuation_pause
     
     # Translocator
-    def check_length():
+    def check_length(last_input):
         global device_input
         if len(device_input) > 6:
             device_input = ""
 
-    def update_input(input, forced = False):
+    def update_input(input):
         global device_input
+        global desired_input
+        global correct_exit
+        global wrong_exit
 
-        # Update device_input on Input
-        if can_input or forced:
-            device_input += input
-            check_length()
-        
-            # Numpad SFX    
-            audio_index = renpy.random.randint(1, 4)
-            renpy.play(f"audio/sfx/numpad/key_{audio_index}.mp3", "sound")
-
-            if len(device_input) == 6:
-                confirm_input()
-        else:
+        if not can_input:
             translocator_error(False)
+            return
+
+        device_input += input
+        check_length(input)
+        
+        audio_index = renpy.random.randint(1, 4)
+        renpy.play(f"audio/sfx/numpad/key_{audio_index}.mp3", "sound")
+
+        if len(device_input) == 6:
+            if desired_input == None:
+                confirm_input(wrong_exit, device_input)
+            if device_input == desired_input:
+                confirm_input(correct_exit, device_input)
+            else:
+                confirm_input(wrong_exit, device_input)
+
+    # def update_input(input, forced = False):
+    #     global device_input
+    #     global ending_target
+
+    #     # Update device_input on Input
+    #     if can_input or forced or ending_target != None:
+    #         device_input += input
+    #         check_length()
+        
+    #         # Numpad SFX    
+    #         audio_index = renpy.random.randint(1, 4)
+    #         renpy.play(f"audio/sfx/numpad/key_{audio_index}.mp3", "sound")
+
+    #         if device_input == ending_target:
+    #             confirm_input()
+    #         elif len(device_input) == 6:
+    #             confirm_input()
+
+    #         if len(device_input) == 6:
+    #             confirm_input()
+    #     else:
+    #         translocator_error(False)
 
     def translocator_error(generic = True):
         renpy.play("audio/sfx/beep_2.wav", "sound")
@@ -156,11 +200,11 @@ init python:
             
         confirm_input()
 
-    def confirm_input():
-        global world_line
-        global device_target
-        world_line = device_input
-        renpy.call("show_chapter") #? useful
+    def confirm_input(label, id):
+        global device_input
+        device_input = id
+
+        renpy.call("show_chapter", scene_jump=label, scene_id=id)
 
     def toggle_translocator():
         global translocator_visible
