@@ -212,10 +212,14 @@ label scene_2:
 
   # $ translocator_visible = True
   $ translocator_alarm(True)
-  $ set_route("living_room", None, None, "lost")
-  
+
+  "Woah?! What was that..." with hpunch
+
+  #! Jump to bad end 1 if device is used
+  $ set_route("living_room", None, "erased_ending", "erased_ending")
+
   $ responses = [
-      "What was that?",
+      "The numbers on the device are... erased?",
       "Does it want me to write on it?",
       "No- I shouldn't do it without making sure what this thing is.",
       "..."
@@ -223,13 +227,13 @@ label scene_2:
   while responses:
     "[responses.pop(0)]"
 
-  #! Jump to bad end 1 if device is used
-
   $ can_input = False
   $ translocator_visible = False
   play sound "audio/sfx/put_down.mp3"
 
   "I stuff the device in my back pocket before the wolf hungry with curiosity gets his hands on it."
+
+  hide screen translocator
 
   franz "Hey hey, don't hide it now. Just give it to me for a while, I'll take care of it!"
 

@@ -130,6 +130,12 @@ label scene_3:
 
   maike "Cassian, who exactly is Franz? A friend of yours?"
 
+  # show living_room:
+  #   matrixcolor InvertMatrix(1.0)
+  # show maike:
+  #   matrixcolor InvertMatrix(1.0)
+  # with dissolve
+  
   cassian "What…"
 
   cassian "I told you we all went to that restaurant yesterday, you two don't really get along well, but we always hang out here, together."
@@ -138,16 +144,18 @@ label scene_3:
 
   "What is she talking about, who is Franz? Obviously, the idiot that dyed his hair because his barber insisted that it would look good on him."
 
-  # show franz:
-  #   glitch("franz")
-  #   pause 0.2
-  # hide franz
+  show franz:
+    matrixcolor OpacityMatrix(0.4)
+    animated_glitch("franz")
+  with dissolve
 
   "The person that all three of us hung out with for the past 3 years, almost every single day."
 
+  hide franz with dissolve
+
   "I grab Maike by her shoulders, and draw her near to my face, maybe she is trying to get a laugh out of me."
 
-  show maike scared crossed with dissolve
+  show maike tired crossed with dissolve
 
   maike "Hey, stop it!"
 
@@ -158,11 +166,11 @@ label scene_3:
 
   cassian "What do you mean you have never heard about that name?!" with hpunch
 
-  cassian "We’ve been gathering at my place almost every day, spending time, laughing, playing games, and doing dumb activities that he kept forcing us to."
+  cassian "We've been gathering at my place almost every day, spending time, laughing, playing games, and doing dumb activities that he kept forcing us to."
 
   "I unconsciously tighten my grip around her shoulder."
 
-  maike "Oww~ What’s gotten into you, calm down!"
+  maike "Oww~ What's gotten into you, calm down!"
 
   cassian "How can I-"
 
@@ -180,7 +188,8 @@ label scene_3:
   "I loosen my grip just enough for Maike to gain some distance away from me, and rush towards the door."
 
   scene living_room
-  show maike scared at center
+  show maike scared at center:
+    xzoom -1.0
   with fade
 
   cassian "No, wait! Let me explain again!"
@@ -189,7 +198,7 @@ label scene_3:
 
   hide maike with moveoutright
 
-  # Running & Door Close SFX
+  #! Running & Door Close SFX
 
   "After a minute of looking at the ground, the adrenaline from interrogating Maike, wears off."
 
@@ -209,37 +218,34 @@ label scene_3:
 
   cassian "Oh right, didn't Franz play with the device yesterday, it's still where I left it."
 
+  show screen translocator
   $ translocator_visible = True
 
+  cassian "Weird, the number on the LCD changed to #341FC2"
 
-  cassian "Weird, the number on the LCD changed."
+  cassian "I still have no clue on what that means."
 
   $ translocator_alarm(True)
   
-  $ set_route("bedroom", "725DD2", "scene_1", "fake_reality")
+  $ set_route("bedroom", "725DD2", "fake_reality_ending", "erased_ending")
 
   $ responses = [
-      "What was that?",
-      "Does it want me to write on it?",
-      "No- I shouldn't do it without making sure what this thing is.",
-      "..."
+      "It's beeping like it did previously...",
+      "What was the previous number again?",
+      "Stuff happened when Franz did something to the device.",
+      "...Is that why he isn't here anymore?",
+      "I remember the same sensation in that fortune teller as well…",
+      "But back then I didn't have the device.",
+      "Maybe I should enter a number…"
   ]
   while responses:
     "[responses.pop(0)]"
 
-  "#341FC2, what was the previous number again?"
-
   # Ending 2/4 (Fake Reality) if the player enters the number from the previous world line.
 
-  "Stuff happened when Franz did something to the device."
-
-  "Is that why he isn't here anymore?"
-
-  "I remember the same sensation in that fortune teller as well…"
-
-  cassian "But back then I didn't have the device."
-
-  cassian "Maybe I should enter a number…"
+  $ translocator_visible = False
+  pause 0.2
+  hide screen translocator
 
   "No, that would be dumb, what if I lose Maike as well?"
 
@@ -255,9 +261,9 @@ label scene_3:
 
   "Won't work after what happened for the past few days… I am not sure about that."
 
-  "My body and mind wouldn’t listen to me, it’s as if I am not myself, but in someone else’s body, just temporarily controlling it."
+  "My body and mind wouldn't listen to me, it's as if I am not myself, but in someone else's body, just temporarily controlling it."
 
-  # Scene Black
+  scene black with fade
 
   cassian "..."
 
@@ -267,23 +273,32 @@ label scene_3:
 
   "A few minutes, hours? I don't even know anymore."
 
-  # Door Knocking SFX
+  #! Door Knocking SFX
+  pause 1.0
 
   "I don't want to answer."
 
-  # Door Ring Spam
+  #! Door Ring Spam
+  pause 1.0
 
   "Just leave me alone."
 
-  # Door Open
+  #! Door Open
 
   cassian "Huh-"
 
-  # Steps SFX Coming Closer
+  #! Steps SFX Coming Closer
 
   cassian "..."
 
-  # Bed Sheets
+  #! Bed Sheets
+
+  scene bedroom:
+    matrixcolor BrightnessMatrix(.65)
+
+  show maike at center:
+    matrixcolor BrightnessMatrix(0.65)
+  with fade
 
   cassian "Argh-"
 
@@ -291,9 +306,17 @@ label scene_3:
 
   "I try blinking several times, to get used to it."
 
+  scene bedroom:
+    ease 0.5 matrixcolor BrightnessMatrix(0.65)
+    ease 1.0 matrixcolor BrightnessMatrix(0)
+  
+  show maike at center:
+    ease 0.5 matrixcolor BrightnessMatrix(0.65)
+    ease 0.5 matrixcolor BrightnessMatrix(0)
+
   cassian "... Weren't you going to call for help? Why are you back."
 
-  # Show Maike worried
+  #! Show Maike worried
 
   maike "I lied about that part, I couldn't bring myself to call someone without seeing how you were doing again."
 
@@ -301,9 +324,17 @@ label scene_3:
 
   cassian "I- I am not confused, it's just that…"
 
-  # Scene Black
+  scene black with fade
 
-  "I explain everything that has transpired so far, the sudden disappearance of Franz and Maike, about the Fortune Teller we visited. The disappearance of Franz and the change in the apartment interior. Everything… feeling off…"
+  "I explain everything that has transpired so far, about the Fortune Teller we visited."
+  "How Franz and Maike's memories weren't matching mine."
+  "The disappearance of Franz and the change in the apartment interior."
+  "Everything… feeling off…"
+
+  scene bedroom
+
+  show maike at center
+  with fade
 
   maike "This… You are not joking are you…"
 
@@ -311,9 +342,11 @@ label scene_3:
 
   maike "It doesn't sound like a made-up story, everything you talked about sounds real, yet I can't recall any of it."
 
-  "Ah right, I didn't show her the device yet, maybe she might remember that."
+  "Ah right, I didn't show her the device yet, she might remember that."
 
-  # Show Device
+  show screen translocator
+  $ can_input = False
+  $ translocator_visible = True
 
   cassian "Ever seen this device? I showed this to you and Franz yesterday."
 
@@ -321,13 +354,18 @@ label scene_3:
 
   "Right, as expected."
 
+  $ translocator_visible = False
+  pause 0.2
+  hide screen translocator
+  hide screen translocator_numpad
+
   maike "Have you tried messing with the device? Entering a number, or taking it apart?"
 
-  cassian "How could I?! I have no clue what the numbers on the screen mean, and every time something goes wrong, the number on the device changes"
+  cassian "How could I?! I have no clue what the numbers on the screen mean, and every time something goes wrong, the number on the device changes."
 
   cassian "I- I don't want to break what I have already."
 
-  "But- I do want to- {nw}"
+  "But- I do want to-"
 
   maike "But you probably want to go back to how things were."
 
@@ -335,10 +373,15 @@ label scene_3:
 
   cassian "What if it gets worse? And you forget about me as well?"
 
+  show maike crossed smirk with dissolve
+
   maike "Then… I swear I'll find you on the other side as well, and deal with this thing together."
 
   "An empty promise, but it makes me feel safe and confident."
+
   cassian "Any ideas on what I should write?"
+
+  show maike tired
 
   maike "Hmm~ Good question…"
 
@@ -352,11 +395,28 @@ label scene_3:
 
   "Now I just need to write #313600 on the device."
 
-  $ active_background = "living_room_night"
+  $ set_route("bedroom", "313600", "scene_4", None)
+
+  $ translocator_visible = True
+  show screen translocator
+  pause 3.0
+  $ translocator_visible = False
+
+  maike "Aren't you going to write anything?"
+
+  cassian "It's just that... thank you Maike."
+
+  cassian "I would've probably stayed at a place I didn't want to if not for you."
+
+  "I give my goodbye to the Maike here, knowing full well, this scene will not be remembered by her."
+
+  "It's kinda sad really, being the only one to know what's about to happen."
+
+  show maike smirk
+
+  #! Show maike Happy?
+  maike "You're welcome, Cassian."
+
   $ force_input("313600")
-
-  # If another number is written say "I messed up" or maybe just keep it forced here.
-
-  # Warp Transition
 
   return

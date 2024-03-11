@@ -12,7 +12,7 @@ define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'scre
 
 label start:
     show film_grain onlayer film_grain
-    show screen translocator_shortcut
+    # show screen translocator_shortcut
     jump scene_1
     return
 
@@ -104,7 +104,8 @@ init python:
             ", " : ", {w=0.45}",
             "? " : "? {w=0.75}",
             "! " : "! {w=0.75}",
-            "...": "{cps=2}...{/cps} {w=0.1}"
+            "...": "{cps=2}...{/cps} {w=0.1}",
+            "…": "{cps=2}...{/cps} {w=0.1}"
         }
         for key in punctuations:
             input = input.replace(key, punctuations[key]) 
@@ -117,23 +118,27 @@ init python:
         if len(device_input) > 6:
             device_input = ""
 
-    def update_input(input):
+    def update_input(input, forced = False):
         global device_input
         global desired_input
         global correct_exit
         global wrong_exit
 
-        if not can_input:
-            translocator_error(False)
+        if not can_input and not forced:
+            translocator_error()
             return
 
         device_input += input
         check_length(input)
-        
+
         audio_index = renpy.random.randint(1, 4)
         renpy.play(f"audio/sfx/numpad/key_{audio_index}.mp3", "sound")
 
-        if len(device_input) == 6:
+        if len(device_input) == 6:   
+            if forced:
+                confirm_input(correct_exit, device_input)
+                return
+
             if desired_input == None:
                 confirm_input(wrong_exit, device_input)
             if device_input == desired_input:
@@ -141,41 +146,8 @@ init python:
             else:
                 confirm_input(wrong_exit, device_input)
 
-    # def update_input(input, forced = False):
-    #     global device_input
-    #     global ending_target
-
-    #     # Update device_input on Input
-    #     if can_input or forced or ending_target != None:
-    #         device_input += input
-    #         check_length()
-        
-    #         # Numpad SFX    
-    #         audio_index = renpy.random.randint(1, 4)
-    #         renpy.play(f"audio/sfx/numpad/key_{audio_index}.mp3", "sound")
-
-    #         if device_input == ending_target:
-    #             confirm_input()
-    #         elif len(device_input) == 6:
-    #             confirm_input()
-
-    #         if len(device_input) == 6:
-    #             confirm_input()
-    #     else:
-    #         translocator_error(False)
-
-    def translocator_error(generic = True):
+    def translocator_error():
         renpy.play("audio/sfx/beep_2.wav", "sound")
-        
-        # if not generic:
-        #     responses = [
-        #         "Hm... The device seems unresponsive...",
-        #         "It doesn't seem like it works...",
-        #         "My input doesn't get registered...",
-        #         "Weird, why doesn't it work?",
-        #         "..."
-        #     ]
-        #     renpy.invoke_in_new_context(renpy.say, narrator, renpy.random.choice(responses))
 
     def force_input(target):
         global device_input
@@ -232,11 +204,6 @@ init python:
             translocator_visible = True
             renpy.show_screen("translocator")
     
-    # Scene Jump
-    def jump_to_scene(target):
-        renpy.jump(target)
-
-
 ##
 # Translocator Screen
 ##

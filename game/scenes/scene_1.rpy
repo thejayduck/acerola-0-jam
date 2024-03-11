@@ -13,7 +13,7 @@ label scene_1:
   show franz tired at right
   with moveinright
 
-  "The first one I look at is Franz, he doesn’t react to my stare in any way."
+  "The first one I look at is Franz, he doesn't react to my stare in any way."
 
   "We live under the same roof, not because we wanted to, but because at the beginning of the first semester of the university we study at, conducted a random poll, and we got stuck with each other ever since."
   "Not that I am complaining or anything… he has been a good friend since then."  
@@ -32,7 +32,7 @@ label scene_1:
 
   maike "What is it?"
 
-  cassian "When’d you arrive here?"
+  cassian "When'd you arrive here?"
 
   "Maike is… not sure actually, she has been following me for a long time."
   "Her presence didn't bother me so I never had to kick her out of the apartment."

@@ -10,8 +10,6 @@ define franz = Character("Franz", color="#68815E", image="franz", what_slow_cps=
 
 define notification = Character("Notification", color="#53c5c5", what_prefix="> ")
 
-# define fortune_teller = Character("Suspicious Guy", color="#6e2b2b", what_slow_cps=15)
-
 image ctc_indicator:
     xysize(24,24)
     yalign 1.4

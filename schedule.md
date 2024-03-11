@@ -71,19 +71,37 @@
 
 ## 10th [Current]
 
-- [ ] Transfer Edited Text to Ren'py
-- [ ] Quick Gameplay Test
-- [ ] Add Completed Sprites for Franz
+- [x] Add Completed Sprites for Franz
+- [x] Transfer Edited Text to Ren'py
+- [x] Quick Gameplay Test
+- [x] Fix Bugs
+
+## 11th
+
+- [x] Improve Writing / Dialogue where necessary
+- [ ] Draw New Expressions
+  - Maike
+    - [ ] Confused
+    - [ ] Worried
 - [ ] Find Music
   - [ ] Weird Abstract Music
   - [ ] Upbeat Music
   - [ ] Mysterious Music
   - [ ] Spacey, left alone kinda feeling music
-- [ ] Fix Bugs
-
-## 11th
-
-- [ ] Improve Writing / Dialogue where necessary
+  - [ ] Something's wrong feeling music
+- [ ] Find SFX
+  - [ ] Door Open
+  - [ ] Door Close Normal
+  - [ ] Door Close Fast
+  - [ ] Door Knock
+  - [ ] Doorbell Spam
+  - [ ] Running in place
+  - [ ] Running Away
+  - [ ] Walking Towards
+  - [ ] Light Switch
+  - [ ] Bed sheets
+  - [ ] Throw on Ground
+  - [ ] Stomach
 - [ ] Fix Bugs
 
 ## 12th

@@ -33,8 +33,6 @@ screen credits():
       "{a=https://freesound.org/people/Resaural/sounds/531421/}2{/a}, " +\
       "{a=https://freesound.org/people/Zat_Dude/sounds/402511/}3{/a}"
       text " - {a=https://freesound.org/people/ventousawins/sounds/681420/} Pickup and Putdown {/a}"
-      text "Additional Backgrounds"
-      text " - "
       text "Translocator Model Parts"
       text " - {a=https://grabcad.com/library/lcd-display-16x2-3}LCD{/a}"
       text " - {a=https://grabcad.com/library/delphine-custom-numpad-pcb-1}Numpad{/a}"
