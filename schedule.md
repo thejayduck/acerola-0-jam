@@ -69,7 +69,7 @@
     - [x] Annoyed
     - [x] Surprised
 
-## 10th [Current]
+## 10th
 
 - [x] Add Completed Sprites for Franz
 - [x] Transfer Edited Text to Ren'py
@@ -79,87 +79,44 @@
 ## 11th
 
 - [x] Improve Writing / Dialogue where necessary
-- [ ] Draw New Expressions
+- [x] Draw New Expressions
   - Maike
-    - [ ] Confused
-    - [ ] Worried
-- [ ] Find Music
-  - [ ] Weird Abstract Music
-  - [ ] Upbeat Music
-  - [ ] Mysterious Music
-  - [ ] Spacey, left alone kinda feeling music
-  - [ ] Something's wrong feeling music
-- [ ] Find SFX
-  - [ ] Door Open
-  - [ ] Door Close Normal
-  - [ ] Door Close Fast
-  - [ ] Door Knock
-  - [ ] Doorbell Spam
-  - [ ] Running in place
-  - [ ] Running Away
-  - [ ] Walking Towards
-  - [ ] Light Switch
-  - [ ] Bed sheets
-  - [ ] Throw on Ground
-  - [ ] Stomach
-- [ ] Fix Bugs
+    - [x] Confused (e_def, m_confused, b_scared)
+    - [x] Worried (e_tired, m_confused, b_cofnused)
+- [x] Find Music
+  - [x] Weird Abstract Music
+  - [x] Upbeat Music
+  - [x] Mysterious Music
+  - [x] Spacey, left alone kinda feeling music
+  - [x] Something's wrong feeling music
+- [x] Find SFX
+  - [x] Door Open
+  - [x] Door Open Distant
+  - [x] Door Open Room
+  - [x] Door Close Normal
+  - [x] Door Close Fast
+  - [x] Door Knock, 3 Variations
+  - [x] Doorbell (Distant)
+  - [x] Running in place
+  - [x] Running Away
+  - [x] Walking Towards (Sock)
+  - [x] Light Switch
+  - [x] Bed sheets
+  - [x] Throw on Ground
+  - [x] Stomach
+- [x] Fix Bugs
 
-## 12th
+## 12th [Current]
 
-- [ ] First Playtest
+- [ ] Playtest
 - [ ] Polishing
+- [ ] Let game run in auto-mode, and check play-time
 
 ## 13th (Jam ends at 7.59AM on 14th)
 
-- [ ] Second Playtest
 - [ ] Archive Files
 - [ ] Release
 
 # Possible Bugs
 
 Translocator doesnt show up when menu is opened during force input
-
-# Credits (Transfer to Ren'Py Credits)
-
-## Main
-
-Programmer: TheJayduck
-
-Writer: TheJayDuck
-
-Character and CG Artist: TheJayDuck
-
-Bathroom, Living Room, Hallway, Storefront, Bedroom and Space Background Artist: TheJayDuck
-
-Effect Artist: TheJayDuck
-
-## Translocator Model Parts
-
-- LCD: https://grabcad.com/library/lcd-display-16x2-3
-- Numpad: https://grabcad.com/library/delphine-custom-numpad-pcb-1
-- Keycap: https://grabcad.com/library/cherry-mx-keycap-1
-
-## Audio
-
-### Music
-
-https://freesound.org/people/younoise/sounds/614947/
-
-### SFX
-
-Space Ambiance: https://freesound.org/people/0ktober/sounds/188831/
-
-https://freesound.org/people/Unaxete/sounds/329795/
-https://freesound.org/people/cliftonmcarlson/sounds/725828/
-
-Translocator Alarm: https://freesound.org/people/IndigoRay/sounds/339130/
-
-Translocator (Mashup of Multiple Audio Files)
-
-- https://freesound.org/people/gusgus26/sounds/415097/
-- https://freesound.org/people/Resaural/sounds/531421/
-- https://freesound.org/people/Zat_Dude/sounds/402511/
-
-Key Press 1-4: TheJayDuck
-
-Device Beep: TheJayDuck

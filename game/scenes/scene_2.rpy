@@ -28,11 +28,20 @@ label scene_2:
   pause 3.0
   stop music fadeout 4.0 
 
+  scene black with fade
+
   "The sound slowly dissipates, and I slowly gain the ability to control my body, once again."
 
   scene bedroom afternoon at nausea("bedroom afternoon", 3):
-    blur 20
+    blur 5
+    xalign 0.5
+    yalign 0.5
+    ease 1.0 zoom 1.2
+    ease 1.0 zoom 1.1
+    repeat
   with dissolve 
+
+  play music "audio/bgm/nightmare.mp3" fadein 1.0
 
   cassian "Arghhhhhh… Huff… Huff"
 
@@ -50,7 +59,7 @@ label scene_2:
   scene bedroom afternoon with dissolve
 
   "This is my room, apartment number 27. A place where I live with Franz and hang out with Maike."
-  "But my room? Unless everything so far has been a dream."
+  "But why my room?"
   "I am pretty sure I've been at the fortune teller with Maike and Franz until a few minutes ago."
 
   cassian "H- ..."
@@ -60,8 +69,10 @@ label scene_2:
   "I force myself out of the bed and limp towards my door."
 
   scene living_room afternoon
-  show maike afternoon at right
-  show franz afternoon at left
+  show maike afternoon:
+    xpos .5
+  show franz afternoon:
+    xpos .1
   with fade
 
   # Door SFX
@@ -100,8 +111,10 @@ label scene_2:
   "I explained to them what had happened yesterday. But I kept the nightmare to myself."
 
   scene living_room afternoon
-  show maike afternoon at right
-  show franz sad hip afternoon at left
+  show maike afternoon confused:
+    xpos .5
+  show franz sad hip afternoon:
+    xpos .1
   with fade
 
   franz "Mystic's Fate Deceiving Properties? What does that even mean? A new mobile game?"
@@ -117,6 +130,17 @@ label scene_2:
   maike "No, it's 13th."
 
   "..."
+
+  "I check the time on my phone, thinking her might be out of sync."  
+  
+  # Audio looping
+  $ loop = 0
+  while loop < 2:
+    $ renpy.play("audio/sfx/generic/phone_tap.mp3", "audio")
+    pause renpy.random.uniform(0.5, 1.5)
+    $ loop += 1
+
+  cassian "Y-You are right..."
 
   show franz proud
 
@@ -165,15 +189,17 @@ label scene_2:
   "A sudden surge of questions flooded my brain... unanswered."
 
   scene living_room afternoon
-  show maike afternoon at right
-  show franz afternoon happy hip at left
+  show maike afternoon:
+    xpos .5
+  show franz afternoon happy hip:
+    xpos .1
   with fade
 
   cassian "Since when did you realize it?"
 
   franz "Since the time you came out of your room of course. You can't hide that thing from me, can I use it now?"
 
-  cassian "No! It's not a new phone. Just a project I am working on…"
+  cassian "No! It's not a new phone. Just a project I am working on…" with hpunch
 
   "In truth, I have no clue what this is."
 
@@ -198,8 +224,10 @@ label scene_2:
 
   #! Maybe invert colors?
   scene living_room afternoon
-  show maike afternoon at right
-  show franz afternoon  happy hip at left
+  show maike afternoon:
+    xpos .5
+  show franz afternoon happy hip:
+    xpos .1
   with fade
 
   $ toggle_translocator(True)
@@ -234,9 +262,13 @@ label scene_2:
 
   hide screen translocator
 
+  show franz annoyed
+
   franz "Hey hey, don't hide it now. Just give it to me for a while, I'll take care of it!"
 
   franz "Maike, say something to him."
+
+  show maike tired
 
   maike "... I am busy."
 
@@ -250,9 +282,13 @@ label scene_2:
 
   #? Maybe night filter?
   scene living_room
-  show maike tired at right
-  show franz tired hip at left
+  show maike tired:
+    xpos .5
+  show franz tired hip:
+    xpos .1
   with fade
+
+  play music "audio/bgm/casual_2.mp3"
 
   maike "Harrghh~"
 
@@ -265,7 +301,7 @@ label scene_2:
   "Not only Maike but also Franz as well?!"
 
   show maike:
-    ease 1.0 xalign 0.20
+    ease 1.0 xalign 0.45
 
   maike "..."
 
@@ -273,7 +309,9 @@ label scene_2:
 
   cassian "...and?"
 
-  show maike smirk at right with ease
+  show maike smirk:
+    xpos .6
+  with ease
 
   maike "Only 257 words…"
 
@@ -439,6 +477,7 @@ label scene_2:
     ease 2.0 zoom 1.0
   pause 2.0
 
+  play music "audio/bgm/casual_2.mp3"
   show franz proud at center with dissolve
 
   franz "Don't worry, the food is cheap here, you won't have to worry about running short on money."
@@ -479,6 +518,7 @@ label scene_2:
 
   "We both part aways to our rooms."
 
+  stop music fadeout 3.0
   scene black with fade
   pause 3.0
 

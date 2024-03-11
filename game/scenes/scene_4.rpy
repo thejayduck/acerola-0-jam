@@ -15,7 +15,9 @@ label scene_4:
   "This time knowing what's about to come, I endure my nausea, until the warped world around me settles down."
 
   pause 2.0
-  scene bedroom with dissolve
+  scene bedroom:
+    ease 1.0 zoom 1.0
+  with dissolve
 
   cassian "The device, it worked!"
   
@@ -64,6 +66,12 @@ label scene_4:
   "A place many dreams of visiting, a place where nightlife is just as loud as the day."
   "Children screaming with joy throughout, 9 to 5 workers rushing to their offices."
   "The buses, cars, the smell of exhaust emitted from all those vehicles…"
+
+  show city_empty:
+    matrixcolor InvertMatrix(1.0)
+  with dissolve
+
+  play music "audio/bgm/all_gone.mp3" fadein 2.0
 
   "All gone."
 

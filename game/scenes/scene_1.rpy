@@ -2,10 +2,16 @@ label scene_1:
   cassian "mmm- ahhh…"
 
   "I woke up from my long nap on the uncomfortable sofa and stretched my entire body."
-  "How long have I been sleeping for? My entire body feels sluggish… I guess sleeping in the middle of the day wasn't a good idea after all."
-  "I then open my eyes and let them adjust to the brightly lit room. I look at the two people sitting across me and blankly stare at them."
+  "How long have I been sleeping for?"
+  "My entire body feels sluggish…"
+  "I guess sleeping in the middle of the day wasn't a good idea after all."
+  "I then open my eyes and let them adjust to the brightly lit room."
+  "I look at the two people sitting across me and blankly stare at them."
 
-  scene living_room
+
+  play music "audio/bgm/casual.mp3" fadein 5.0
+
+  scene living_room with fade
 
   cassian "..."
 
@@ -14,7 +20,7 @@ label scene_1:
 
   "The first one I look at is Franz, he doesn't react to my stare in any way."
 
-  "We live under the same roof, not because we wanted to, but because at the beginning of the first semester of the university we study at, conducted a random poll, and we got stuck with each other ever since."
+  "We live under the same roof, not because we wanted to, but because at the beginning of the first semester, our university, conducted a random poll, and we got stuck with each other ever since."
   "Not that I am complaining or anything… he has been a good friend since then."  
 
   "I guess he is just as tired as I am…"
@@ -60,6 +66,10 @@ label scene_1:
 
   show franz surprised at right with moveinright
 
+  show maike:
+    xzoom -1.0
+  with dissolve
+
   franz "Wah! I just remembered!" with hpunch
 
   cassian "You don't have to scream like that you know!"
@@ -71,6 +81,8 @@ label scene_1:
   franz "Sorry~ I won't do it again~"
 
   cassian "So, what did you remember?"
+
+  show maike confused
 
   maike "Probably the fact that he doesn't have time to finish the essay on time."
 
@@ -85,9 +97,10 @@ label scene_1:
 
   maike "..."
 
+  show maike tired
+
   cassian "Now that I mention that… We got scammed far too many times thanks to those 'new fortune tellers', haven't we."
 
-  show maike tired
 
   maike "Indeed."
 
@@ -98,7 +111,7 @@ label scene_1:
 
   cassian "We are not going. {nw}"
 
-  franz "What about you maike, do you want to join us?"
+  franz "What about you Maike, do you want to join us?"
 
   cassian "Hey hey I said I am not coming! {nw}"
 
@@ -119,16 +132,24 @@ label scene_1:
   scene black with fade
 
   "Although forced, I reluctantly entered my room to change my clothes, and get my phone."
+  
+  play audio "audio/sfx/generic/door_close_fast.mp3"
 
   scene city_empty
-  show franz at left
-  show maike at right
+  show franz:
+    xpos .1
+    walk
+  show maike:
+    xpos .5
+    walk(.8)
   with fade
 
-  cassian "Huff… Huff… Didn't you say this place was close…"
+  cassian "Huff… Huff…"
 
   "We've been following behind Franz for the past 30 minutes or so, I am hesitant to look and confirm the time on my phone."
   "I look at Maike walking behind me, she seems fine for someone who prefers to spend hours on end working on assignments."
+
+  cassian "D-Didn't you say this place was close…"
 
   show franz happy
 
@@ -136,13 +157,18 @@ label scene_1:
   
   cassian "...{nw}"
 
-  show maike tired crossed with dissolve
+  show maike tired crossed:
+    xpos .5
+  with dissolve
 
   maike "..."
 
   "I pick up my walking pace, swiftly closing the distance between Franz and me."
   "I've been itching to do this since we left the apartment."
 
+  # play audio "audio/sfx/generic/walk_towards.mp3"
+
+  play audio "audio/sfx/generic/punch.mp3"
   scene franz_punch with hpunch
 
   with vpunch
@@ -159,11 +185,13 @@ label scene_1:
 
   franz "But aren't you guys having fun as well?"
 
+  play audio "audio/sfx/generic/punch.mp3"
   with hpunch
   with vpunch
 
   franz "OK OK. I won't do it again… for now…"
 
+  play audio "audio/sfx/generic/punch.mp3"
   with hpunch
   with vpunch
 
@@ -188,7 +216,6 @@ label scene_1:
 
   cassian "Maike… What do you think about this place?"
 
-  pause 1.0
   show maike worried with dissolve
 
   maike "T-This might be the worst one we are about to experience, brace yourselves."
@@ -197,7 +224,7 @@ label scene_1:
 
   show franz annoyed
 
-  franz "What are you two talking about?"
+  franz "What are you two talking about?" with hpunch
 
   franz "Can't you see how undecorated this place is, there aren't any big signs directing to this place, and is only known by those who care about their fortunes."
   
@@ -216,8 +243,6 @@ label scene_1:
 
   "Looking at it again, this one does feel… weird."
 
-  play audio "audio/sfx/generic/running.mp3"
-
   show franz happy
 
   franz "Ooh, the door opened itself when it detected our presence, mysterious."
@@ -225,6 +250,8 @@ label scene_1:
   cassian "Dude, they are just motion detectors."
 
   franz "I am going in."
+
+  play audio "audio/sfx/generic/running.mp3"
 
   hide franz with dissolve
   show maike normal
@@ -235,7 +262,7 @@ label scene_1:
 
   franz "..."
 
-  cassian "Franz- {nw}"
+  cassian "Franz?" with hpunch
 
   franz "Ah sorry, I was trying to find the light switch."
 
@@ -251,7 +278,8 @@ label scene_1:
 
   "She nods slightly at my question."
 
-  "Anyways, why can't I… see anything in this place? Is it one of those paints that absorb the majority of the light?"
+  "Anyways, why can't I… see anything in this place?"
+  "Is it one of those paints that absorb the majority of the light?"
 
   cassian "Franz where are you? I can't see you from the entrance."
 
@@ -318,7 +346,9 @@ label scene_1:
   cassian "..."
 
   scene warp_1 with fade
-  play music "audio/bgm/warp.mp3"
+
+  stop music fadeout 4.0  
+  play music "audio/bgm/something_is_wrong.mp3" fadein 2.0 volume .8
 
   "Is this some kind of simulation room?"
 

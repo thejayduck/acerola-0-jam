@@ -14,6 +14,8 @@ label scene_3:
 
   "I gain consciousness once again."
 
+  play music "audio/bgm/nightmare.mp3" fadein 1.0
+
   cassian "Urk!"
 
   "A sour taste rose in my throat, and I tried to swallow it unwillingly so as not to make a mess in my room."
@@ -33,9 +35,8 @@ label scene_3:
 
   "Without warning, the contents of my stomach surged upwards, and I retched violently, emptying my insides into the bowl."
 
+  play audio "audio/sfx/vomiting.mp3"
   cassian "Bleerrghh!" with hpunch
-
-  #! Vomit SFX
 
   scene bathroom with dissolve
 
@@ -54,8 +55,6 @@ label scene_3:
 
   cassian "The- the door… is gone?"
   
-  play audio "audio/sfx/generic/hit_wall.mp3"
-  $ renpy.pause(2.0, hard=True)
   "What?{w} How?{w} Why?{w} When?{w}"
 
   show hallway_2:
@@ -64,6 +63,8 @@ label scene_3:
     ease 1.5 zoom 1.5
 
   "Once again, something is not right, just like yesterday…"
+
+  play audio "audio/sfx/generic/hit_wall.mp3"
 
   "I touch the walls, try to scrape the paint. To hell with the landlord, my friend is locked behind a door that's shut with concrete."
 
@@ -113,8 +114,8 @@ label scene_3:
 
   "It's hard to breathe, the sour taste left in my mouth doesn't help with anything either."
 
+  pause 2.0
   play sound "audio/sfx/phone.ogg"
-
   cassian "Is it Franz?" with hpunch
 
   play sound "audio/sfx/generic/phone_tap.mp3"
@@ -127,9 +128,13 @@ label scene_3:
   show maike at center
   with Fade(2.0, 2.0, 2.0)
 
+  play sound "audio/sfx/generic/door_open_room.mp3"
+
   # "After reading the notification I wash my face real fast and greet Maike waiting in front of my door with all her documents. "
 
   cassian "What brings you here today, I thought you were done with your assignment already?"
+
+  show maike confused
 
   maike "What makes you think that I was already done? Didn't we both agree to meet and finish it together today?"
 
@@ -151,15 +156,23 @@ label scene_3:
 
   "I look at Maike again to get a reaction out of her but she looks, puzzled."
 
+  show maike confused
+
   maike "Cassian, who exactly is Franz? A friend of yours?"
 
-  # show living_room:
-  #   matrixcolor InvertMatrix(1.0)
-  # show maike:
-  #   matrixcolor InvertMatrix(1.0)
-  # with dissolve
+  show living_room:
+    matrixcolor InvertMatrix(1.0)
+  show maike:
+    matrixcolor InvertMatrix(1.0)
+  with dissolve
   
+  play music "audio/bgm/realization.mp3" fadein 1.5
+
   cassian "What…"
+
+  scene living_room
+  show maike at center
+  with dissolve
 
   cassian "I told you we all went to that restaurant yesterday, you two don't really get along well, but we always hang out here, together."
 
@@ -178,7 +191,7 @@ label scene_3:
 
   "I grab Maike by her shoulders, and draw her near to my face, maybe she is trying to get a laugh out of me."
 
-  show maike tired crossed with dissolve
+  show maike worried crossed with dissolve
 
   maike "Hey, stop it!"
 
@@ -204,6 +217,8 @@ label scene_3:
   maike "There's no room for someone else at your place, this is a single-room apartment."
 
   "Now that she mentioned that, I couldn't find his door, nor belongings no matter where I looked. His contacts were also erased from my phone."
+
+  play audio "audio/sfx/generic/punch.mp3"
 
   scene maike_cg_2 with vpunch
   $ renpy.pause(1.5, hard=True)
@@ -285,13 +300,15 @@ label scene_3:
 
   cassian "T-That doesn't matter, it's already mysterious enough for this contraption to work without a power source."
 
-  cassian "Maybe it won't work at all."
+  "Maybe it won't work at all."
 
-  "Won't work after what happened for the past few days… I am not sure about that."
+  cassian "Won't work after what happened ever since I got my hands on this thing? I am not sure about that."
 
   "My body and mind wouldn't listen to me, it's as if I am not myself, but in someone else's body, just temporarily controlling it."
 
   scene black with fade
+
+  stop music fadeout 2.0
 
   cassian "..."
 
@@ -335,6 +352,8 @@ label scene_3:
   show maike at center:
     matrixcolor BrightnessMatrix(0.65)
   with fade
+
+  queue music "audio/bgm/casual_goodye.mp3" 
 
   cassian "Argh-"
 
@@ -421,6 +440,8 @@ label scene_3:
 
   maike "Hmm~ Good question…"
 
+  $ renpy.pause(3.0, hard=True)
+
   maike "How about the numbers that correlate with our initials, including that other guy."
 
   cassian "So that that would be…"
@@ -436,6 +457,8 @@ label scene_3:
   $ toggle_translocator(True)
   pause 3.0
   $ toggle_translocator(False)
+
+  show maike hip confused with dissolve
 
   maike "Aren't you going to write anything?"
 

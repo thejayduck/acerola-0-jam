@@ -3,10 +3,29 @@
 define config.say_attribute_transition = dissolve
 
 # Characters
-define narrator = Character(ctc="ctc_indicator", ctc_position="nestled-close")
-define cassian = Character("Cassian", color="#fff2f2", what_slow_cps=25)
-define maike = Character("Maike", color="#fd9432", image="maike", what_slow_cps=20)
-define franz = Character("Franz", color="#68815E", image="franz", what_slow_cps=30)
+define narrator = Character(
+    ctc="ctc_indicator",
+    ctc_position="nestled-close",
+    what_prefix = '"',
+    what_suffix = '"'
+)
+define cassian = Character(
+    "Cassian",
+    color="#fff2f2",
+    what_slow_cps=25
+)
+define maike = Character(
+    "Maike",
+    color="#fd9432",
+    image="maike",
+    what_slow_cps=20
+)
+define franz = Character(
+    "Franz",
+    color="#68815E",
+    image="franz",
+    what_slow_cps=30
+)
 
 define notification = Character("Notification", color="#53c5c5", what_prefix="> ")
 
@@ -18,6 +37,11 @@ image ctc_indicator:
     linear 0.5 alpha 0.0
     "effects/ctc100.png"
     linear 0.5 alpha 1.0
+    repeat
+
+transform walk(speed = 0.5):
+    easein speed yoffset 15
+    easein speed yoffset 0
     repeat
 
 transform night_color:

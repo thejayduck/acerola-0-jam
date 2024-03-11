@@ -11,7 +11,9 @@ define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'scre
 
 label start:
     show film_grain onlayer film_grain
-    jump scene_1
+    # jump scene_1
+    $ active_background = "warp_1"
+    $ renpy.call("show_chapter", scene_jump="scene_1", scene_id="FFFFFF")
     return
 
 ##
