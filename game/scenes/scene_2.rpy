@@ -30,7 +30,7 @@ label scene_2:
 
   "The sound slowly dissipates, and I slowly gain the ability to control my body, once again."
 
-  scene bedroom at nausea("bedroom", 3):
+  scene bedroom afternoon at nausea("bedroom afternoon", 3):
     blur 20
   with dissolve 
 
@@ -47,7 +47,7 @@ label scene_2:
   "This time I can undoubtedly see, and feel my body for that matter."
   "I slowly observe my surroundings."
   
-  scene bedroom with dissolve
+  scene bedroom afternoon with dissolve
 
   "This is my room, apartment number 27. A place where I live with Franz and hang out with Maike."
   "But my room? Unless everything so far has been a dream."
@@ -59,18 +59,19 @@ label scene_2:
   "My throat is so dry that my moving tongue hurts the insides of my mouth."
   "I force myself out of the bed and limp towards my door."
 
-  scene living_room
-  show maike at right
-  show franz at left
+  scene living_room afternoon
+  show maike afternoon at right
+  show franz afternoon at left
   with fade
 
-  #! Door SFX
+  # Door SFX
+  play audio "audio/sfx/generic/door_open_room.mp3"
 
   maike "Oh? He finally got up. Good morning polar bear."
 
   show franz surprised
 
-  franz "Damn it! What time is it?! I might still have a chance!"
+  franz "Damn it! What time is it?! I might still have a chance!" with hpunch
 
   show maike smirk crossed with dissolve
 
@@ -98,9 +99,9 @@ label scene_2:
 
   "I explained to them what had happened yesterday. But I kept the nightmare to myself."
 
-  scene living_room
-  show maike at right
-  show franz sad hip at left
+  scene living_room afternoon
+  show maike afternoon at right
+  show franz sad hip afternoon at left
   with fade
 
   franz "Mystic's Fate Deceiving Properties? What does that even mean? A new mobile game?"
@@ -135,18 +136,17 @@ label scene_2:
 
   show franz happy
 
-  franz "Never mind your dream, when are you planning to talk about that cool phone you are holding? Where'd you get it!?"
+  franz "Never mind your dream, when are you planning to talk about that cool phone you are holding? Where'd you get it!?" with hpunch
 
   cassian "What phone are you even talking about? Mine's in my room."
 
   "Now that Franz mentioned it, I am holding onto something…"
 
-  $ translocator_visible = True
-  show screen translocator
+  $ toggle_translocator(True)
 
   pause 2.0
 
-  $ translocator_visible = False
+  $ toggle_translocator(False)
 
   scene translocator_cg_1 with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
@@ -164,9 +164,9 @@ label scene_2:
 
   "A sudden surge of questions flooded my brain... unanswered."
 
-  scene living_room
-  show maike at right
-  show franz happy hip at left
+  scene living_room afternoon
+  show maike afternoon at right
+  show franz afternoon happy hip at left
   with fade
 
   cassian "Since when did you realize it?"
@@ -177,12 +177,12 @@ label scene_2:
 
   "In truth, I have no clue what this is."
 
-  $ translocator_visible = True
+  $ toggle_translocator(True)
 
   "I take a closer look at it. The device seems simple. A tiny illuminated LCD screen, accompanied by a numpad, all connected with red wires."
   "A T9 layout, but with an addition—letters A, B, C, and D. Quite unusual from what the norm is."
 
-  $ translocator_visible = False
+  $ toggle_translocator(False)
 
   scene translocator_cg_1 with dissolve
   $ renpy.pause(0.5, hard=True)
@@ -197,26 +197,25 @@ label scene_2:
   "Solar, perhaps? No, I don't see any panels for that…"
 
   #! Maybe invert colors?
-  scene living_room
-  show maike at right
-  show franz happy hip at left
+  scene living_room afternoon
+  show maike afternoon at right
+  show franz afternoon  happy hip at left
   with fade
 
-  $ translocator_visible = True
+  $ toggle_translocator(True)
 
-  "I look at every side of the device and the only clue it has is the fact that the screen shows the number #725FF2."
+  "I look at every side of the device and the only clue it has is the fact that the screen shows the number #725DD2."
 
   "What's that even mean…"
 
   "I better not play around with it."
 
-  # $ translocator_visible = True
   $ translocator_alarm(True)
 
   "Woah?! What was that..." with hpunch
 
-  #! Jump to bad end 1 if device is used
-  $ set_route("living_room", None, "erased_ending", "erased_ending")
+  # Jumps to erased ending if device is used
+  $ set_route("living_room afternoon", None, "erased_ending", "erased_ending")
 
   $ responses = [
       "The numbers on the device are... erased?",
@@ -228,7 +227,7 @@ label scene_2:
     "[responses.pop(0)]"
 
   $ can_input = False
-  $ translocator_visible = False
+  $ toggle_translocator(False)
   play sound "audio/sfx/put_down.mp3"
 
   "I stuff the device in my back pocket before the wolf hungry with curiosity gets his hands on it."
@@ -249,6 +248,7 @@ label scene_2:
 
   "Shortly after Franz, not to be left out joins us as well."
 
+  #? Maybe night filter?
   scene living_room
   show maike tired at right
   show franz tired hip at left
@@ -265,8 +265,7 @@ label scene_2:
   "Not only Maike but also Franz as well?!"
 
   show maike:
-    xalign 0.20
-  with moveinleft
+    ease 1.0 xalign 0.20
 
   maike "..."
 
@@ -274,7 +273,7 @@ label scene_2:
 
   cassian "...and?"
 
-  show maike smirk at right with moveinright
+  show maike smirk at right with ease
 
   maike "Only 257 words…"
 
@@ -287,11 +286,12 @@ label scene_2:
 
   "I did sit in front of my laptop to complete my assignment, but the device behind me has been eating my curiosity so much that I don't have a clue on what to write about."
 
-  #! Stomach sound
+  # Stomach sound
+  play audio "audio/sfx/generic/stomach_grumble.mp3"
 
   cassian "..."
 
-  show franz hip happy
+  show franz hip happy with dissolve
 
   franz "Ah! You couldn't write anything because you are hungry?"
 
@@ -303,35 +303,57 @@ label scene_2:
 
   maike "I was planning on eating leftovers from yesterday."
 
-  franz "Maike… that won't do, there's a new place in the city, and you decide to ignore it?! The reviews I read were all astonished by their food, let's all go together."
+  show franz sad
+
+  franz "Maike…"
+
+  franz "That won't do, there's a new place in the city, and you decide to ignore it?!"
+  
+  franz"The reviews I read were all astonished by their food, let's all go together."
 
   cassian "Sure, I'll come along."
 
   maike "Eating out for once does sound nice… and the food isn't expensive, right? {nw}"
 
+  show franz happy point with dissolve
+
   franz "Then it's decided! Come let's get ready Cassian."
 
   hide franz with moveoutleft
   pause 1.0
+  play audio "audio/sfx/generic/door_close.mp3"
 
-  scene bedroom with dissolve
+  scene bedroom night with dissolve
 
   "Franz shuts my laptop lid and forcefully pushes me inside my room, unable to contain his curious spirit."
+
+  play audio "audio/sfx/generic/light_switch.mp3"
+  scene bedroom with dissolve
+  $ renpy.pause(1.0, hard=True)
+
+  scene bedroom:
+    xalign 0.3
+    yalign 0.7
+    ease 1.0 zoom 1.5
+  play audio "audio/sfx/generic/lay_down.mp3"
 
   "I lay down on my bed."
 
   "I did agree to go with them, but I just can't stop thinking about the device."
 
   # Show device, you can input #! Decided not to make it input
-  $ translocator_visible = True
+  $ device_input = "725DD2"
+  $ toggle_translocator(True)
 
   "It's a simple device really, nothing should happen even if I write anything on it…"
 
   "No, never mind."
 
-  $ translocator_visible = False
+  $ toggle_translocator(False)
 
   cassian "Ugh…"
+
+  scene black with dissolve
 
   "I deeply sigh, get off my bed, and leave the device on my desk as a reminder for myself to look for information about it once I get back home."
 
@@ -340,8 +362,13 @@ label scene_2:
   scene bathroom with dissolve
 
   "There I see myself, did I look like this to them, that's not a way to present myself to them."
-  "
-  Should've brushed my hair before I got out of the room when I woke up."
+  
+  scene bathroom:
+    xalign 0.4
+    yalign 0.1
+    ease 1.5 zoom 1.5
+
+  "Should've brushed my hair before I got out of the room when I woke up."
 
   "I get ready, and put on my jacket, calling out to my friends that I'm ready to leave."
 
@@ -369,7 +396,11 @@ label scene_2:
   # Maike used to say this
   franz "It's a small business but has a large following on social media."
 
-  maike "mm~ yeah, our major even planned to go there with all the students after our term is over. Pretty sure we talked about it together."
+  show maike confused
+
+  maike "mm~ yeah, our major even planned to go there with all the students after our term is over."
+  
+  maike "Pretty sure we talked about it together."
 
   cassian "R-really? Maybe I got the wrong place, haha~"
 
@@ -382,6 +413,9 @@ label scene_2:
 
   show restaurant:
     glitch("fortune_teller")
+    xalign 0.5
+    yalign 0.1
+    ease 2.0 zoom 1.5
     pause 0.2
     "restaurant"
 
@@ -401,7 +435,11 @@ label scene_2:
 
   "I try to reassure myself, but the doubt lingers throughout my body and mind, refusing to let me go inside."
 
-  show franz proud at center
+  show restaurant:
+    ease 2.0 zoom 1.0
+  pause 2.0
+
+  show franz proud at center with dissolve
 
   franz "Don't worry, the food is cheap here, you won't have to worry about running short on money."
 
@@ -413,13 +451,11 @@ label scene_2:
 
   "But… thanks to him I managed to go inside the restaurant. And enjoy a nice meal."
 
-  scene living_room:
-    matrixcolor TintMatrix('#7986c0') * BrightnessMatrix(0.1)
-  with fade
+  scene living_room night with fade
 
   cassian "Hrrghh~ ahh~"
 
-  show franz at center with dissolve
+  show franz night at center with dissolve
   pause 0.4
   show franz tired with dissolve
 
@@ -443,20 +479,19 @@ label scene_2:
 
   "We both part aways to our rooms."
 
-  scene black
+  scene black with fade
   pause 3.0
 
-  play sound "audio/sfx/lightning.wav" volume 0.5 loop
-  
   # Translocator going off
+  play sound "audio/sfx/lightning.wav" volume 0.5 loop
   show lightning onlayer lightning
 
   "......"
 
   cassian "What the hell?!"
 
-  show bedroom_night
-  show franz surprised at center
+  scene bedroom night
+  show franz night surprised at center
   with fade
 
   "I see Franz in my room, playing around with the device that I tried to hide from him."
@@ -470,8 +505,7 @@ label scene_2:
 
   "The world around me starts to twirl and twist in unnatural ways, as I lose consciousness once again."
 
-  #? Turn this into a function
-  $ active_background = "bedroom_night"
+  $ active_background = "bedroom night"
   $ confirm_input("scene_3", "341FC2")
 
   return

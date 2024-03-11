@@ -4,7 +4,12 @@ label scene_3:
   cassian "Ah!"
 
   scene bedroom at nausea("bedroom", 3):
-    blur 20
+    blur 5
+    xalign 0.5
+    yalign 0.5
+    ease 1.0 zoom 1.2
+    ease 1.0 zoom 1.1
+    repeat
   with dissolve 
 
   "I gain consciousness once again."
@@ -17,7 +22,8 @@ label scene_3:
 
   "Feeling another rush of acidic taste coming I stumble towards the bathroom." with hpunch
 
-  #! Run SFX
+  # Run SFX
+  play audio "audio/sfx/generic/running.mp3"
 
   scene bathroom at nausea("bathroom", .5):
     blur 5
@@ -41,32 +47,40 @@ label scene_3:
 
   "Worried, I go ahead and check up on him."
 
+  play audio "audio/sfx/generic/running.mp3"
   scene hallway_2 with fade
 
   cassian "......"
 
   cassian "The- the door… is gone?"
   
+  play audio "audio/sfx/generic/hit_wall.mp3"
+  $ renpy.pause(2.0, hard=True)
   "What?{w} How?{w} Why?{w} When?{w}"
 
   show hallway_2:
-    ease 1.5 zoom 1.2 ypos 1080
+    xalign 0.15
+    yalign 0.1
+    ease 1.5 zoom 1.5
 
   "Once again, something is not right, just like yesterday…"
 
   "I touch the walls, try to scrape the paint. To hell with the landlord, my friend is locked behind a door that's shut with concrete."
 
   show hallway_2:
-    ease 1.5 zoom 1.2 ypos 1200
-
+    ease 1.0 xalign 0.8
+    ease 1.0 yalign 0.4
+    ease 1.5 zoom 1.3
   "But, there's nothing. No passage, just pure concrete wall."
 
   show hallway_2:
-    ease 1.5 zoom 1.2 ypos 1200 xpos 1050
+    ease 1.0 zoom 1.0
 
   cassian "What about his belongings?"
 
   show living_room with Fade(0.2, 0.2, 0.2)
+
+  play audio "audio/sfx/generic/running.mp3"
 
   "I run towards the living room…"
 
@@ -84,6 +98,13 @@ label scene_3:
 
   "His- His contact, I should still have it."
 
+  # Audio looping
+  $ loop = 0
+  while loop < 5:
+    $ renpy.play("audio/sfx/generic/phone_tap.mp3", "audio")
+    pause renpy.random.uniform(0.5, 1.5)
+    $ loop += 1
+  
   "I look at our chat groups, call history, messages we sent to each other over the years…"
 
   cassian "All gone…"
@@ -95,6 +116,8 @@ label scene_3:
   play sound "audio/sfx/phone.ogg"
 
   cassian "Is it Franz?" with hpunch
+
+  play sound "audio/sfx/generic/phone_tap.mp3"
 
   notification "Are you home? I am outside your door.\n - Maike 12:07 PM"
 
@@ -166,7 +189,7 @@ label scene_3:
 
   cassian "What do you mean you have never heard about that name?!" with hpunch
 
-  cassian "We've been gathering at my place almost every day, spending time, laughing, playing games, and doing dumb activities that he kept forcing us to."
+  cassian "We've been gathering at my place almost every day, spending time, laughing, playing games, and doing dumb activities that he kept forcing us to." with vpunch
 
   "I unconsciously tighten my grip around her shoulder."
 
@@ -198,7 +221,14 @@ label scene_3:
 
   hide maike with moveoutright
 
-  #! Running & Door Close SFX
+  # Running & Door Close SFX
+  play audio "audio/sfx/generic/running_away.mp3"
+  $ renpy.pause(3.0, hard=True)
+  play audio "audio/sfx/generic/door_close_fast.mp3"
+
+  scene black with Fade(0.2, 0.2, 0.2)
+
+  pause 1.5
 
   "After a minute of looking at the ground, the adrenaline from interrogating Maike, wears off."
 
@@ -218,8 +248,7 @@ label scene_3:
 
   cassian "Oh right, didn't Franz play with the device yesterday, it's still where I left it."
 
-  show screen translocator
-  $ translocator_visible = True
+  $ toggle_translocator(True)
 
   cassian "Weird, the number on the LCD changed to #341FC2"
 
@@ -229,8 +258,9 @@ label scene_3:
   
   $ set_route("bedroom", "725DD2", "fake_reality_ending", "erased_ending")
 
+  "It's beeping like it did previously..." with hpunch
+
   $ responses = [
-      "It's beeping like it did previously...",
       "What was the previous number again?",
       "Stuff happened when Franz did something to the device.",
       "...Is that why he isn't here anymore?",
@@ -243,9 +273,7 @@ label scene_3:
 
   # Ending 2/4 (Fake Reality) if the player enters the number from the previous world line.
 
-  $ translocator_visible = False
-  pause 0.2
-  hide screen translocator
+  $ toggle_translocator(False)
 
   "No, that would be dumb, what if I lose Maike as well?"
 
@@ -273,25 +301,33 @@ label scene_3:
 
   "A few minutes, hours? I don't even know anymore."
 
-  #! Door Knocking SFX
+  # Door Knocking SFX
+  play audio "audio/sfx/generic/door_knock_distant_3.mp3"
   pause 1.0
 
   "I don't want to answer."
 
-  #! Door Ring Spam
+  # Door Bell
+  play audio "audio/sfx/generic/doorbell_distant.mp3"
   pause 1.0
 
   "Just leave me alone."
 
-  #! Door Open
+  # Door Open & Steps Coming Closer
+  play audio "audio/sfx/generic/door_open_distant.mp3"
+  $ renpy.pause(1.0, hard=True)
+  play audio "audio/sfx/generic/walk_towards.mp3"
+  $ renpy.pause(6.0, hard=True)
+  play audio "audio/sfx/generic/door_open_room.mp3"
+  pause 1.0
+  play audio "audio/sfx/generic/light_switch.mp3"
 
   cassian "Huh-"
 
-  #! Steps SFX Coming Closer
-
   cassian "..."
 
-  #! Bed Sheets
+  # Bed Sheets
+  play audio "audio/sfx/generic/bedsheets.mp3"
 
   scene bedroom:
     matrixcolor BrightnessMatrix(.65)
@@ -317,6 +353,7 @@ label scene_3:
   cassian "... Weren't you going to call for help? Why are you back."
 
   #! Show Maike worried
+  show maike worried
 
   maike "I lied about that part, I couldn't bring myself to call someone without seeing how you were doing again."
 
@@ -333,7 +370,7 @@ label scene_3:
 
   scene bedroom
 
-  show maike at center
+  show maike confused at center
   with fade
 
   maike "This… You are not joking are you…"
@@ -344,9 +381,9 @@ label scene_3:
 
   "Ah right, I didn't show her the device yet, she might remember that."
 
-  show screen translocator
+  $ device_input = "341FC2"
   $ can_input = False
-  $ translocator_visible = True
+  $ toggle_translocator(True)
 
   cassian "Ever seen this device? I showed this to you and Franz yesterday."
 
@@ -354,10 +391,7 @@ label scene_3:
 
   "Right, as expected."
 
-  $ translocator_visible = False
-  pause 0.2
-  hide screen translocator
-  hide screen translocator_numpad
+  $ toggle_translocator(False)
 
   maike "Have you tried messing with the device? Entering a number, or taking it apart?"
 
@@ -367,13 +401,15 @@ label scene_3:
 
   "But- I do want to-"
 
+  show maike normal crossed with dissolve
+
   maike "But you probably want to go back to how things were."
 
   "She did it again, reading my mind like an esper… haha~"
 
   cassian "What if it gets worse? And you forget about me as well?"
 
-  show maike crossed smirk with dissolve
+  show maike crossed smirk
 
   maike "Then… I swear I'll find you on the other side as well, and deal with this thing together."
 
@@ -397,10 +433,9 @@ label scene_3:
 
   $ set_route("bedroom", "313600", "scene_4", None)
 
-  $ translocator_visible = True
-  show screen translocator
+  $ toggle_translocator(True)
   pause 3.0
-  $ translocator_visible = False
+  $ toggle_translocator(False)
 
   maike "Aren't you going to write anything?"
 
@@ -414,7 +449,6 @@ label scene_3:
 
   show maike smirk
 
-  #! Show maike Happy?
   maike "You're welcome, Cassian."
 
   $ force_input("313600")

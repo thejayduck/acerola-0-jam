@@ -20,13 +20,38 @@ image ctc_indicator:
     linear 0.5 alpha 1.0
     repeat
 
-image bedroom_night:
-    "bedroom"
+transform night_color:
     matrixcolor TintMatrix('#7986c0') * BrightnessMatrix(0.1)
 
-image living_room_night:
-    "living_room"
+transform night_color_darker:
     matrixcolor TintMatrix('#475386') * BrightnessMatrix(0.1)
 
+transform afternoon_color:
+    matrixcolor TintMatrix('#ffe4a97a')
 
-#! add colors for morning evening etc for other places
+image franz night = LayeredImageProxy("franz", night_color)
+image franz afternoon = LayeredImageProxy("franz", afternoon_color)
+
+image maike night = LayeredImageProxy("maike", night_color)
+image maike afternoon = LayeredImageProxy("maike", afternoon_color)
+
+image living_room night:
+    "living_room"
+    night_color
+
+image living_room afternoon:
+    "living_room"
+    afternoon_color
+
+image bedroom night:
+    "bedroom"
+    night_color_darker
+
+image bedroom afternoon:
+    "bedroom"
+    afternoon_color
+
+image restaurant afternoon:
+    "restaurant"
+    afternoon_color
+#! add colors for afternoon! especially for scene_2 living_room

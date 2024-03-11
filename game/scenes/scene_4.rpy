@@ -1,20 +1,25 @@
 label scene_4:
-  $ translocator_visible = False
-  hide screen translocator
-  hide screen translocator_numpad
   "The space and time around me started to warp, once again."
 
   scene bedroom at nausea("bedroom", 3):
-    blur 20
-  with dissolve
+    blur 5
+    xalign 0.5
+    yalign 0.5
+    ease 1.0 zoom 1.2
+    ease 1.0 zoom 1.1
+    repeat
+  with dissolve 
 
   cassian "Urk!"
 
   "This time knowing what's about to come, I endure my nausea, until the warped world around me settles down."
 
+  pause 2.0
   scene bedroom with dissolve
 
-  cassian "The device, it worked! You've saw it too right, Maike?"
+  cassian "The device, it worked!"
+  
+  cassian "You've saw it too right, Maike?"
 
   "...She isn't here."
 
@@ -24,18 +29,20 @@ label scene_4:
 
   "What about Franz?!"
 
-  #! Running SFX
+  # Running SFX
+  play audio "audio/sfx/generic/running.mp3"
   show hallway with Fade(0.2, 0.2, 0.2)
   
   cassian "It, it's back! The door that was sealed shut with cold concrete is back here!"
 
   cassian "Did the device work properly?!"
 
-  #! Door Open SFX
-
-  cassian "..."
+  # Door Open SFX
+  play audio "audio/sfx/generic/door_open_room.mp3"
 
   scene black with fade
+
+  cassian "..."
 
   "With the door open, I was met with his usual room, messy as ever."
 
@@ -62,17 +69,14 @@ label scene_4:
 
   "Hundreds of thousands of people walking around the city… all vanished."
 
-  $ translocator_visible = True
-  show screen translocator
+  $ toggle_translocator(True)
 
   cassian "Damn you… DAMN YOU!" # hpunch
 
-  $ translocator_visible = False
-  pause 1.0
-  hide screen translocator
-  hide screen translocator_numpad
+  $ toggle_translocator(False)
   
-  #! Throw SFX
+  # Throw SFX
+  play audio "audio/sfx/generic/throw.mp3"
 
   "I throw the device with full force on the hot asphalt in the middle of the road." with hpunch
 
@@ -128,15 +132,11 @@ label scene_4:
 
   show city_empty with fade
 
-  $ translocator_visible = True
-  show screen translocator
-
   # Show Device
-  # If something is entered, go to end other wise
-
-  $ translocator_alarm(True)
   
   $ set_route("city_empty", None, None, "nightmare_ending")
+  $ toggle_translocator(True)
+  $ translocator_alarm(True)
 
   $ responses = [
       "This annoying, sound again...",
@@ -147,17 +147,12 @@ label scene_4:
   while responses:
     "[responses.pop(0)]"
 
-  $ translocator_visible = False
-  pause 1.0
-  hide screen translocator
-  hide screen translocator_numpad
+  $ toggle_translocator(False)
 
   cassian "......"
 
   scene black with fade
   pause 2.0
-  jump alone_ending
-
-  # If the device is ignored (Alone in World (3/4)
+  jump alone_ending # If the device is ignored (Alone in World (3/4)
 
   return

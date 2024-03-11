@@ -1,8 +1,7 @@
 label show_chapter(scene_jump, scene_id):
   show active_background at distort(active_background) with dissolve
 
-  $ translocator_visible = False
-  hide screen translocator_shortcut
+  $ toggle_translocator(False)
   $ quick_menu = False
 
   stop music fadeout 2.04
@@ -98,8 +97,6 @@ style modal_text:
   xalign .5
   yalign .5
 
-#! End Testing Features
-
 image warp:
   "warp_1" with dissolve
   pause 1.0
@@ -125,7 +122,7 @@ image space:
   pause 0.5
   "space_2" with dissolve
   pause 0.5
-  "space_1" with dissolve #? Try this out
+  "space_1" with dissolve
   pause 1.5
   repeat
 

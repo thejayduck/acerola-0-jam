@@ -151,6 +151,5 @@ label test:
   show maike
   show franz at right
   $ translocator_visible = False
-  hide screen translocator_shortcut
   cassian "Argh never mind this crappy device..."
   cassian "I would rather waste money on more fortune tellers."

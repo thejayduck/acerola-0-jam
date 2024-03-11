@@ -30,7 +30,7 @@ label nightmare_ending:
   cassian "..."
 
   "It's hard to breathe, and it feels as if no matter how hard I try nothing fills up my lungs."
-  "Argh… the screeching again…"
+  "Argh… the screeching again…" with hpunch
   "I want it to end, I want to stop my body from hearing this…"
   "But alas, I can't."
   "I should've just… not touched that crap to begin with."

@@ -1,5 +1,4 @@
 label scene_1:
-  hide screen translocator_shortcut
   cassian "mmm- ahhh…"
 
   "I woke up from my long nap on the uncomfortable sofa and stretched my entire body."
@@ -49,7 +48,7 @@ label scene_1:
   maike "You keep saying that but end up paraphrasing my entire essay at the end, I would be shocked if you managed your time well for once."
   maike "I might consider not showing you my whatever-thousand-word essay this time."
 
-  "Urk!" #? hpunch
+  "Urk!" with hpunch
 
   cassian "Huh?! D-Did you read my min- are you an esper perchance?!"
 
@@ -190,7 +189,7 @@ label scene_1:
   cassian "Maike… What do you think about this place?"
 
   pause 1.0
-  show maike closed with dissolve
+  show maike worried with dissolve
 
   maike "T-This might be the worst one we are about to experience, brace yourselves."
 
@@ -217,7 +216,7 @@ label scene_1:
 
   "Looking at it again, this one does feel… weird."
 
-  #! play sound "click and door opening"
+  play audio "audio/sfx/generic/running.mp3"
 
   show franz happy
 
@@ -241,9 +240,10 @@ label scene_1:
   franz "Ah sorry, I was trying to find the light switch."
 
   cassian "Hold on, I'll turn on my flashlight and find a light switch."
-  "I get my phone out of my front pocket and tap the flashlight button in the quick menu."
 
-  #! click sfx
+  play audio "audio/sfx/generic/phone_tap.mp3"
+
+  "I get my phone out of my front pocket and tap the flashlight button in the quick menu."
 
   cassian "... Are you seeing this Maike?"
 
@@ -282,9 +282,29 @@ label scene_1:
   maike "Exactly."
 
   "Hmph, this girl sure is on my side when it comes to punishing Franz."
-  "Maike, together with me enters the void."
+
+  # play audio "audio/sfx/generic/walking.mp3"
+
+    #   xalign 0.5
+    # yalign 1.0
+    # animated_glitch("cassian_crazy_2")
+    # linear 10 zoom 1.3
+
+  hide maike with dissolve
+
+  scene fortune_teller:
+    xalign 0.75
+    yalign 0.55 
+    ease 3.5 zoom 1.5
+  pause 2.0
 
   scene black with fade
+
+  "Maike, together with me enters the void."
+
+  stop music fadeout 0.5
+  pause 0.5
+  play music "/audio/bgm/warp.mp3" fadein 0.5
 
   "Wow, this place is cold. Like… abnormally cold, I don't think a consumer AC can achieve such temperatures."
 

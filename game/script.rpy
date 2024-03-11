@@ -2,7 +2,6 @@
 
 default active_background = None
 define can_input = False
-define translocator_visible = False
 
 default desired_input = None
 default correct_exit = None
@@ -12,7 +11,6 @@ define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'scre
 
 label start:
     show film_grain onlayer film_grain
-    # show screen translocator_shortcut
     jump scene_1
     return
 
@@ -151,11 +149,12 @@ init python:
 
     def force_input(target):
         global device_input
-        global translocator_visible
+        # global translocator_visible
 
-        translocator_visible = True
-        renpy.show_screen("translocator")
-        renpy.hide_screen("translocator_shortcut")
+        # translocator_visible = True
+        toggle_translocator(True)
+        # renpy.show_screen("translocator")
+        # renpy.hide_screen("translocator_shortcut")
         device_input = ""
         
         renpy.pause(1.5, hard=True)
@@ -178,31 +177,23 @@ init python:
 
         renpy.call("show_chapter", scene_jump=label, scene_id=id)
 
-    def toggle_translocator():
-        global translocator_visible
-        # global device_input
-
-        # if can_input == True: # Keeping this just in case
-        #     device_input = ""
-
-        translocator_visible = not translocator_visible
-        if translocator_visible: #! Add SFX
-            renpy.play("audio/sfx/pick_up.mp3", "sound")
-            renpy.show_screen("translocator")
+    def toggle_translocator(show):
+        if show:
+            renpy.play("audio/sfx/pick_up.mp3"), 
+            renpy.show_screen("translocator", True)
         else:
-            renpy.play("audio/sfx/put_down.mp3", "sound")
+            renpy.play("audio/sfx/put_down.mp3"), 
+            renpy.show_screen("translocator", False)
 
     def translocator_alarm(force = False):
         global device_input
         global can_input
-        global translocator_visible
         device_input = ""
         can_input = True
         renpy.play("audio/sfx/device_beep.mp3", "sound")
 
         if force:
-            translocator_visible = True
-            renpy.show_screen("translocator")
+            toggle_translocator(True)
     
 ##
 # Translocator Screen
@@ -215,17 +206,17 @@ style translocator_text:
     size 54
     font "fonts/dot_matrix/DOTMATRI.TTF"
 
-screen translocator_shortcut():
-    zorder 2
-    imagebutton:
-        pos (1790,920)
-        auto "images/translocator/shortcut/translocator_button_%s.png" 
-        sensitive True  
-        action Function(toggle_translocator)
+# screen translocator_shortcut():
+#     zorder 2
+#     imagebutton:
+#         pos (1790,920)
+#         auto "images/translocator/shortcut/translocator_button_%s.png" 
+#         sensitive True  
+#         action Function(toggle_translocator)
 
-screen translocator():
+screen translocator(visible = False):
     zorder 2
-    if translocator_visible:
+    if visible:
         add "translocator_show" xalign 0.992
         timer 0.5 action [Show("translocator_numpad", transition=dissolve)]
     else:
