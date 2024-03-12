@@ -39,7 +39,7 @@
 - [x] Add Credits Menu
 - [x] Finish Editing Remainder of #725FF2 and Rewrite Certain Scenes.
 - [x] Finish Editing #341FC2
-- [ ] Draw or Photoshop Street 1 (City) <!--! Scrapped -->
+<!-- - [ ] Draw or Photoshop Street 1 (City) [Scrapped] -->
 - [x] Draw or Photoshop city overview (empty world)
 
 ## 9th
@@ -106,17 +106,20 @@
   - [x] Stomach
 - [x] Fix Bugs
 
-## 12th [Current]
+## 12th
 
-- [ ] Playtest
-- [ ] Polishing
-- [ ] Let game run in auto-mode, and check play-time
+- [x] Playtest
+- [x] Polishing
+- [x] General code/file cleanup
+- [x] Fix last frame for the device
+- [x] Let game run in auto-mode, and check play-time (50~ Minutes)
+- [x] Archive Files
+- [x] Update Itch.io Page
 
-## 13th (Jam ends at 7.59AM on 14th)
+## 13th (Jam ends at 7.59AM on 14th) [Current]
 
-- [ ] Archive Files
 - [ ] Release
 
-# Possible Bugs
+# Bugs
 
-Translocator doesnt show up when menu is opened during force input
+- When the UI gets hidden and unhidden, the translocator base doesn't show up again.
