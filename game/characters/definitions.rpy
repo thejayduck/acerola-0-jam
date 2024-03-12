@@ -22,7 +22,7 @@ define maike = Character(
 )
 define franz = Character(
     "Franz",
-    color="#68815E",
+    color="#7ab463",
     image="franz",
     what_slow_cps=30
 )
