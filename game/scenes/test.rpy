@@ -78,7 +78,6 @@ label test:
 
   cassian "what does the translocator look like?"
 
-
   scene translocator_cg_1 with Dissolve(2.0)
   $ renpy.pause(1.5, hard=True)
   scene translocator_cg_2 with Dissolve(2.0)
@@ -114,7 +113,6 @@ label test:
 
   $ translocator_alarm(True)
   cassian "oh its the device."
-
 
   # $ renpy.pause(hard=True) #! Pauses story advancement
   cassian "Ah it's the translocator."

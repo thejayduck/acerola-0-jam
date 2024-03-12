@@ -78,4 +78,3 @@ image bedroom afternoon:
 image restaurant afternoon:
     "restaurant"
     afternoon_color
-#! add colors for afternoon! especially for scene_2 living_room

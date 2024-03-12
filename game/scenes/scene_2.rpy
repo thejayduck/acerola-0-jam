@@ -417,7 +417,7 @@ label scene_2:
   show maike at right
   with fade
 
-  franz "And this is the place!! Mr.{w=0} Romero's Italian Cuisine."
+  franz "And this is the place!! Mr{w=0}.{w=0} Romero's Italian Cuisine."
 
   "Franz stood proudly while pointing at the location that he had discovered. But isn't this place…"
 
@@ -539,9 +539,6 @@ label scene_2:
   franz "Aaah~ I am sorry, I just couldn't fall asleep thinking about it!"
 
   "I shouldn't have left it on my desk, damn it!"
-
-  # Screech BGM
-  # Blurry Background
 
   "The world around me starts to twirl and twist in unnatural ways, as I lose consciousness once again."
 

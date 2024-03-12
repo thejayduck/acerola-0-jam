@@ -8,7 +8,6 @@ label scene_1:
   "I then open my eyes and let them adjust to the brightly lit room."
   "I look at the two people sitting across me and blankly stare at them."
 
-
   play music "audio/bgm/casual.mp3" fadein 5.0
 
   scene living_room with fade
@@ -100,7 +99,6 @@ label scene_1:
   show maike tired
 
   cassian "Now that I mention that… We got scammed far too many times thanks to those 'new fortune tellers', haven't we."
-
 
   maike "Indeed."
 

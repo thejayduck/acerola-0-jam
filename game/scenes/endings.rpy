@@ -4,19 +4,21 @@ label erased_ending:
   with fade
   play music "audio/bgm/warp_2.mp3" fadein 0.5 loop
 
-  "Erased from Existence (1/4)"
+  "Erased from Existence (1/5)"
+  $ MainMenu(confirm=False)()
+
+label wrong_number:
+  scene black with fade
+  "So that wasn't the previous number... huh?"
+  "Wrong Number (2/5)"
   $ MainMenu(confirm=False)()
 
 label fake_reality_ending:
   scene black with fade
+  
   "I managed to go back..."
   "To a place that I don't fit in..."
-
-  "Stranger in #725DD2 (2/4)"
-  $ MainMenu(confirm=False)()
-
-label alone_ending:
-  "All alone in #313600 (3/4)"
+  "Stranger in #725DD2 (3/5)"
   $ MainMenu(confirm=False)()
 
 label nightmare_ending:
@@ -36,5 +38,9 @@ label nightmare_ending:
   "I should've just… not touched that crap to begin with."
   "I will probably wake up in another world anyway…"
 
-  "Lost in Time and Space (4/4)"
+  "Lost in Time and Space (4/5)"
+  $ MainMenu(confirm=False)()
+
+label alone_ending:
+  "All Alone in #313600 (5/5)"
   $ MainMenu(confirm=False)()

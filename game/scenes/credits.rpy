@@ -3,7 +3,7 @@ screen credits():
   tag menu
   use game_menu(_("Credits"), scroll="viewport"):
     vbox:
-      text "Made for {a=https://itch.io/jam/acerola-jam-0/}Acerola 0{/a} Game Jam in 14 Days"
+      text "Made for {a=https://itch.io/jam/acerola-jam-0/}Acerola Jam 0{/a} in 14 Days"
      
       null height 24
 
@@ -67,7 +67,6 @@ screen credits():
       null height 24
 
       text "I may have missed some sound effects due to the sheer amount of them. All additional assets besides what I created were either CC0 or Public Domain."
-
 
 style credits_text:
   justify True

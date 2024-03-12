@@ -40,7 +40,6 @@ transform modal_scroll():
     ease 4 ypos -1710
     ease .7 ypos -1697
     ease .3 ypos -1700
-    # ease 6 zoom 1.5 ypos -2750
 
 screen chapter_modal(scene_id):
   key "K_ESCAPE" action NullAction()
@@ -88,7 +87,6 @@ screen chapter_modal(scene_id):
       text "#D1E2F3"
       text "#G4H5I6"
       text "#J7K8L9"
-
 return
 
 style modal_text:

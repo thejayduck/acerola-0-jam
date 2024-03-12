@@ -11,7 +11,8 @@ define config.layers = [ 'master', 'film_grain', 'lightning', 'transient', 'scre
 
 label start:
     show film_grain onlayer film_grain
-    # jump scene_1
+    hide screen translocator
+    hide screen translocator_shortcut
     $ active_background = "warp_1"
     $ renpy.call("show_chapter", scene_jump="scene_1", scene_id="FFFFFF")
     return
@@ -83,8 +84,6 @@ transform nausea(target, amp = 12):
 # Functions
 ##
 init python:
-    # import time
-
     # target input, exit on right input, exit on wrong input
     def set_route(background, route, correct, wrong):
         global active_background
@@ -151,12 +150,8 @@ init python:
 
     def force_input(target):
         global device_input
-        # global translocator_visible
 
-        # translocator_visible = True
         toggle_translocator(True)
-        # renpy.show_screen("translocator")
-        # renpy.hide_screen("translocator_shortcut")
         device_input = ""
         
         renpy.pause(1.5, hard=True)
@@ -180,12 +175,14 @@ init python:
         renpy.call("show_chapter", scene_jump=label, scene_id=id)
 
     def toggle_translocator(show):
+
         if show:
             renpy.play("audio/sfx/pick_up.mp3"), 
             renpy.show_screen("translocator", True)
-        else:
+        elif not show and renpy.get_screen("translocator") != None:
             renpy.play("audio/sfx/put_down.mp3"), 
             renpy.show_screen("translocator", False)
+            renpy.hide_screen("translocator_numpad")
 
     def translocator_alarm(force = False):
         global device_input
@@ -208,21 +205,13 @@ style translocator_text:
     size 54
     font "fonts/dot_matrix/DOTMATRI.TTF"
 
-# screen translocator_shortcut():
-#     zorder 2
-#     imagebutton:
-#         pos (1790,920)
-#         auto "images/translocator/shortcut/translocator_button_%s.png" 
-#         sensitive True  
-#         action Function(toggle_translocator)
-
 screen translocator(visible = False):
     zorder 2
     if visible:
-        add "translocator_show" xalign 0.992
         timer 0.5 action [Show("translocator_numpad", transition=dissolve)]
+        add "translocator_show" xalign 0.992
     else:
-        timer 0.1 action [Hide("translocator_numpad", transition=dissolve)]
+        # timer 0.1 action [Hide("translocator_numpad", transition=dissolve)]
         add "translocator_hide" xalign 0.992
         
 screen translocator_numpad():

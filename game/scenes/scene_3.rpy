@@ -271,7 +271,7 @@ label scene_3:
 
   $ translocator_alarm(True)
   
-  $ set_route("bedroom", "725DD2", "fake_reality_ending", "erased_ending")
+  $ set_route("bedroom", "725DD2", "fake_reality_ending", "wrong_number")
 
   "It's beeping like it did previously..." with hpunch
 
@@ -285,8 +285,6 @@ label scene_3:
   ]
   while responses:
     "[responses.pop(0)]"
-
-  # Ending 2/4 (Fake Reality) if the player enters the number from the previous world line.
 
   $ toggle_translocator(False)
 
@@ -371,7 +369,7 @@ label scene_3:
 
   cassian "... Weren't you going to call for help? Why are you back."
 
-  #! Show Maike worried
+  # Show Maike worried
   show maike worried
 
   maike "I lied about that part, I couldn't bring myself to call someone without seeing how you were doing again."

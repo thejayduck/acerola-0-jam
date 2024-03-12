@@ -79,7 +79,7 @@ label scene_4:
 
   $ toggle_translocator(True)
 
-  cassian "Damn you… DAMN YOU!" # hpunch
+  cassian "Damn you… DAMN YOU!" with hpunch
 
   $ toggle_translocator(False)
   
