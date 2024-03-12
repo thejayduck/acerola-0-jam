@@ -59,7 +59,7 @@ label scene_1:
 
   show maike crossed normal with dissolve
 
-  maike "Like hell I am! The way you think is so straightforward a monkey can memorize your thought patterns in a few days."
+  maike "Like hell I am! The way you think is so straightforward an infant can memorize your thought patterns in a few days."
 
   cassian "Heh- Fair point, I'll give you that. But even without your help, I'll manage to finish it. After all- {nw}"
 
