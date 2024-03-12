@@ -1,5 +1,5 @@
 label show_chapter(scene_jump, scene_id):
-  show active_background at distort(active_background) with dissolve
+  show background at distort(active_background) with dissolve
 
   $ toggle_translocator(False)
   $ quick_menu = False

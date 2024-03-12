@@ -243,6 +243,7 @@ label scene_2:
   "Woah?! What was that..." with hpunch
 
   # Jumps to erased ending if device is used
+  $ active_background = "living_room afternoon"
   $ set_route("living_room afternoon", None, "erased_ending", "erased_ending")
 
   $ responses = [

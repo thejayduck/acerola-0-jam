@@ -1,8 +1,7 @@
-﻿default device_input = "FFFFFF"
+﻿define can_input = False
 
+default device_input = "FFFFFF"
 default active_background = None
-define can_input = False
-
 default desired_input = None
 default correct_exit = None
 default wrong_exit = None
