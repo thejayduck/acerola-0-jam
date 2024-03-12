@@ -84,7 +84,9 @@ transform nausea(target, amp = 12):
 # Functions
 ##
 init python:
-    # target input, exit on right input, exit on wrong input
+    # expected input,
+    # correct input route, 
+    # wrong input route
     def set_route(background, route, correct, wrong):
         global active_background
         global desired_input
@@ -207,6 +209,7 @@ style translocator_text:
 
 screen translocator(visible = False):
     zorder 2
+    
     if visible:
         timer 0.5 action [Show("translocator_numpad", transition=dissolve)]
         add "translocator_show" xalign 0.992
