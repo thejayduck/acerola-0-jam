@@ -89,7 +89,7 @@ define config.after_load_transition = fade
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = fade
 
 
 ## A variable to set the transition used when the game starts does not exist.
@@ -186,6 +186,7 @@ init python:
 
     ## To archive files, classify them as 'archive'.
 
+    build.archive("fractured_divergence", "all")
     build.archive("scripts", "all")
     build.archive("images", "all") 
 
@@ -198,11 +199,12 @@ init python:
     build.classify('game/**.rpy', None)
     build.classify('game/scripts/**.rpy', None)
 
-    build.classify("game/**.rpyc", "scripts") #all script files are in scripts.rpa
-    build.classify("game/**.jpg", "images") #all images are in images.rpa
+    build.classify("game/**.rpyc", "scripts")
+    build.classify("game/**.jpg", "images")
     build.classify("game/**.png", "images")
     build.classify("game/**.webp", "images")
     build.classify("game/**.webm", "images")
+    build.classify('**/**.**', "fractured_divergence") 
 
     ## Files matching documentation patterns are duplicated in a mac app build,
     ## so they appear in both the app and the zip file.
