@@ -114,11 +114,11 @@
 - [x] Archive Files
 - [x] Update Itch.io Page
 
-## 13th (Jam ends at 7.59AM on 14th) [Current]
+## 13th (Jam ends at 7.59AM on 14th)
 
 - [x] Fix set_route() bug
 - [x] Fix music transitions
-- [ ] Release
+- [x] Release
 
 # Bugs
 
