@@ -123,6 +123,9 @@ label scene_2:
 
   maike "You mean today?"
 
+  stop music fadeout 1.0
+  queue music "audio/bgm/something_is_wrong.mp3" fadein 2.0 volume .8
+
   "Huh?"
 
   cassian "No, no today's 14th isn't it?"
@@ -159,6 +162,9 @@ label scene_2:
   "The two are completely oblivious to the events that just transpired. Or it just never happened to begin with."
 
   show franz happy
+
+  stop music fadeout 1.0
+  queue music "audio/bgm/nightmare.mp3" fadein 1.0
 
   franz "Never mind your dream, when are you planning to talk about that cool phone you are holding? Where'd you get it!?" with hpunch
 
@@ -240,11 +246,10 @@ label scene_2:
 
   $ translocator_alarm(True)
 
-  "Woah?! What was that..." with hpunch
-
   # Jumps to erased ending if device is used
-  $ active_background = "living_room afternoon"
   $ set_route("living_room afternoon", None, "erased_ending", "erased_ending")
+  
+  "Woah?! What was that..." with hpunch
 
   $ responses = [
       "The numbers on the device are... erased?",
@@ -289,7 +294,8 @@ label scene_2:
     xpos .1
   with fade
 
-  play music "audio/bgm/casual_2.mp3"
+  stop music fadeout 0.5
+  queue music "audio/bgm/casual_2.mp3"
 
   maike "Harrghh~"
 
@@ -327,6 +333,7 @@ label scene_2:
 
   # Stomach sound
   play audio "audio/sfx/generic/stomach_grumble.mp3"
+  pause 1.0
 
   cassian "..."
 
@@ -478,7 +485,7 @@ label scene_2:
     ease 2.0 zoom 1.0
   pause 2.0
 
-  play music "audio/bgm/casual_2.mp3"
+  play music "audio/bgm/casual_2.mp3" fadein 0.5
   show franz proud at center with dissolve
 
   franz "Don't worry, the food is cheap here, you won't have to worry about running short on money."
