@@ -166,7 +166,8 @@ label scene_3:
     matrixcolor InvertMatrix(1.0)
   with dissolve
   
-  play music "audio/bgm/realization.mp3" fadein 1.5
+  stop music fadeout 0.5
+  queue music "audio/bgm/realization.mp3" fadein 1.5
 
   cassian "What…"
 
@@ -351,7 +352,7 @@ label scene_3:
     matrixcolor BrightnessMatrix(0.65)
   with fade
 
-  queue music "audio/bgm/casual_goodye.mp3" 
+  queue music "audio/bgm/casual_goodye.mp3" fadein 1.0
 
   cassian "Argh-"
 
@@ -450,7 +451,7 @@ label scene_3:
 
   "Now I just need to write #313600 on the device."
 
-  $ set_route("bedroom", "313600", "scene_4", None)
+  $ set_route("bedroom", "313600", "scene_4", "scene_4")
 
   $ toggle_translocator(True)
   pause 3.0
