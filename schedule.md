@@ -80,7 +80,7 @@
 - [x] Draw New Expressions
   - Maike
     - [x] Confused (e_def, m_confused, b_scared)
-    - [x] Worried (e_tired, m_confused, b_cofnused)
+    - [x] Worried (e_tired, m_confused, b_confused)
 - [x] Find Music
   - [x] Weird Abstract Music
   - [x] Upbeat Music
