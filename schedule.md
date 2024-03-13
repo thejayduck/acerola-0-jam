@@ -39,7 +39,6 @@
 - [x] Add Credits Menu
 - [x] Finish Editing Remainder of #725FF2 and Rewrite Certain Scenes.
 - [x] Finish Editing #341FC2
-<!-- - [ ] Draw or Photoshop Street 1 (City) [Scrapped] -->
 - [x] Draw or Photoshop city overview (empty world)
 
 ## 9th
@@ -58,7 +57,6 @@
   - Maike
     - [x] Default
     - [x] Tired
-    <!-- - [ ] Ignore -->
     - [x] Smirk
     - [x] Scared
   - Franz
@@ -118,6 +116,8 @@
 
 ## 13th (Jam ends at 7.59AM on 14th) [Current]
 
+- [x] Fix set_route() bug
+- [x] Fix music transitions
 - [ ] Release
 
 # Bugs
