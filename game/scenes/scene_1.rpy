@@ -311,11 +311,6 @@ label scene_1:
 
   # play audio "audio/sfx/generic/walking.mp3"
 
-    #   xalign 0.5
-    # yalign 1.0
-    # animated_glitch("cassian_crazy_2")
-    # linear 10 zoom 1.3
-
   hide maike with dissolve
 
   scene fortune_teller:
