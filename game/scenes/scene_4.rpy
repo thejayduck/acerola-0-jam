@@ -142,12 +142,13 @@ label scene_4:
 
   # Show Device
   
-  $ set_route("city_empty", None, None, "nightmare_ending")
+  $ set_route("city_empty", None, "nightmare_ending", "nightmare_ending")
   $ toggle_translocator(True)
   $ translocator_alarm(True)
 
+  "This annoying, sound again..." with hpunch
+
   $ responses = [
-      "This annoying, sound again...",
       "Is there even a point anymore?",
       "I might as well input something nonesensical and see what happens.",
       "..."
